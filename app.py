@@ -104,31 +104,31 @@ def process_vtt_content(vtt_filename):
     return ' '.join(content)
 
 
-def save_to_s3(video_id, title, datetime, content):
-    clean_content = content.replace('\n', ' ')
-    csv_content = f"\"{video_id}\",\"{title}\",\"{datetime}\",\"{content}\"\n"
-    filename = f"{datetime[:10]}.csv"
-    try:
-        existing_object = s3.get_object(Bucket=bucket_name, Key=filename)
-        existing_content = existing_object['Body'].read().decode('utf-8')
-        csv_content = existing_content + csv_content
-    except s3.exceptions.NoSuchKey:
-        csv_content = "video_id,title,datetime,content\n" + csv_content
-    s3.put_object(Bucket=bucket_name, Key=filename, Body=csv_content, ContentType='text/csv')
+# def save_to_s3(video_id, title, datetime, content):
+#     clean_content = content.replace('\n', ' ')
+#     csv_content = f"\"{video_id}\",\"{title}\",\"{datetime}\",\"{content}\"\n"
+#     filename = f"{datetime[:10]}.csv"
+#     try:
+#         existing_object = s3_object.get_object(Bucket=BUCKET_NAME, Key=filename)
+#         existing_content = existing_object['Body'].read().decode('utf-8')
+#         csv_content = existing_content + csv_content
+#     except s3_object.exceptions.NoSuchKey:
+#         csv_content = "video_id,title,datetime,content\n" + csv_content
+#     s3_object.put_object(Bucket=BUCKET_NAME, Key=filename, Body=csv_content, ContentType='text/csv')
 
 
-def save_to_dynamodb(video_id, title, datetime, content):
-    try:
-        table.put_item(
-            Item={
-                'video_id': video_id,
-                'title': title,
-                'datetime': datetime,
-                'content': content
-            }
-        )
-    except Exception as e:
-        print(f"Error saving to DynamoDB: {e}")
+# def save_to_dynamodb(video_id, title, datetime, content):
+#     try:
+#         table.put_item(
+#             Item={
+#                 'video_id': video_id,
+#                 'title': title,
+#                 'datetime': datetime,
+#                 'content': content
+#             }
+#         )
+#     except Exception as e:
+#         print(f"Error saving to DynamoDB: {e}")
 
 
 def get_kst():
