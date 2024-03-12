@@ -41,20 +41,8 @@ class Youtube:
         else:
             for file in os.listdir(vtt_directory):
                 if file.startswith(str(num)) and file.endswith(".vtt"):
-                    return os.path.join(vtt_directory, file), None
-            return None, "Subtitle file not found after yt-dlp execution."
-
-    @staticmethod
-    def extract_video_id(youtube_url):
-        patterns = [
-            r'(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)',
-            r'(?:https?:\/\/)?youtu\.be\/([^?\n]+)',
-        ]
-        for pattern in patterns:
-            match = re.search(pattern, youtube_url)
-            if match:
-                return match.group(1)
-        raise ValueError(f"형식에 맞지 않습니다.")
+                    return os.path.join(vtt_directory, file)
+            raise Exception(f"yt-dlp 실행 이후 자막 파일을 찾지 못하였습니다.")
 
     @staticmethod
     def process_vtt_content(vtt_filename):
