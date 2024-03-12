@@ -139,50 +139,8 @@ def get_kst():
 
 
 # HTML_FORM
-HTML_FORM = """
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Subtitle Collector</title>
-    <script>
-        function submitForm(event) {
-            event.preventDefault();
-            var url = document.getElementById('youtube_url').value;
-            var formData = new FormData();
-            formData.append('youtube_url', url);
-
-            // 프로그레스 바와 메시지 초기화
-            var progressBar = document.getElementById('progress');
-            var messageDiv = document.getElementById('message');
-            progressBar.style.display = 'block';
-            progressBar.value = 0;
-            messageDiv.innerText = '';  // 메시지 초기화
-
-            fetch('/', {
-                method: 'POST',
-                body: formData
-            }).then(function(response) {
-                return response.text();
-            }).then(function(text) {
-                progressBar.value = 100;  // 프로그레스 바를 100%로
-                messageDiv.innerText = text;  // 완료 메시지 표시
-            }).catch(function(error) {
-                messageDiv.innerText = 'Error: ' + error;
-            });
-        }
-    </script>
-</head>
-<body>
-    <h2>유튜브 영상 URL을 입력하세요</h2>
-    <form onsubmit="submitForm(event)">
-        <input type="text" id="youtube_url" name="youtube_url" placeholder="유튜브 URL을 입력하세요" style="width: 400px;">
-        <input type="submit" value="제출">
-    </form>
-    <progress id="progress" value="0" max="100" style="width: 400px; display: none;"></progress>
-    <div id="message"></div>
-</body>
-</html>
-"""
+# HTML_FORM = """
+# """
 
 
 @app.route('/', methods=['GET', 'POST'])
