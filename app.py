@@ -43,10 +43,12 @@ def check_video_exists_in_dynamodb(video_id, title):
         print(f"Error checking video in DynamoDB: {e}")
         return False
 
-def get_next_num():
-    global next_num
-    next_num += 1
-    return next_num
+
+# def get_next_num():
+#     global next_num
+#     next_num += 1
+#     return next_num
+
 
 def get_video_info(url):
     command = [
