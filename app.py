@@ -1,20 +1,28 @@
 import os
-from datetime import datetime
 
 import boto3
-import pytz
-from flask import Flask
+from dotenv import load_dotenv
+from flask import Flask, render_template, request
+
+from src.errors import DynamoOperationError, DynamoDuplicatedError
+from src.storage import S3, DynamoDB
+from src.youtube import ProcessYoutube
+
+load_dotenv()
 
 app = Flask(__name__)
 
+# SpringBoot AutoWire가 없어서 수동 주입 준비
 # DynamoDB와 S3 클라이언트 설정
-dynamodb_object = boto3.resource('dynamodb', region_name='ap-northeast-2')
 s3_object = boto3.client('s3', region_name='ap-northeast-2')
-table = dynamodb_object.Table('Subtitle')
-BUCKET_NAME = 'subtitle-collection'
+dynamodb_object = boto3.resource('dynamodb', region_name='ap-northeast-2')
+table_object = dynamodb_object.Table('Subtitle')
 
+# BUCKET_NAME = 'subtitle-collection'
 VTT_DIRECTORY = '/subtitle/vtt'
-os.makedirs(VTT_DIRECTORY, exist_ok=True)
+DEBUG = bool(os.getenv('DEBUG'))
+if DEBUG is not True:
+    os.makedirs(VTT_DIRECTORY, exist_ok=True)
 
 
 # next_num = 100000
