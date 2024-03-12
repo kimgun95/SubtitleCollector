@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 
-from app import BUCKET_NAME
+from src.errors import DynamoDuplicatedError, DynamoOperationError
+
+BUCKET_NAME = 'subtitle-collection'
 
 
 class Storage(ABC):
