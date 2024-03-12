@@ -1,23 +1,20 @@
-import json
 import os
-import re
-import subprocess
 from datetime import datetime
 
 import boto3
 import pytz
-from flask import Flask, request, render_template_string
+from flask import Flask
 
 app = Flask(__name__)
 
 # DynamoDB와 S3 클라이언트 설정
-dynamodb = boto3.resource('dynamodb', region_name='ap-northeast-2')
-s3 = boto3.client('s3', region_name='ap-northeast-2')
-table = dynamodb.Table('Subtitle')
-bucket_name = 'subtitle-collection'
+dynamodb_object = boto3.resource('dynamodb', region_name='ap-northeast-2')
+s3_object = boto3.client('s3', region_name='ap-northeast-2')
+table = dynamodb_object.Table('Subtitle')
+BUCKET_NAME = 'subtitle-collection'
 
-vtt_directory = '/subtitle/vtt'
-os.makedirs(vtt_directory, exist_ok=True)
+VTT_DIRECTORY = '/subtitle/vtt'
+os.makedirs(VTT_DIRECTORY, exist_ok=True)
 
 
 # next_num = 100000
