@@ -19,8 +19,8 @@ bucket_name = 'subtitle-collection'
 vtt_directory = '/subtitle/vtt'
 os.makedirs(vtt_directory, exist_ok=True)
 
-next_num = 100000
 
+# next_num = 100000
 
 def extract_video_id(youtube_url):
     patterns = [
