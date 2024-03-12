@@ -111,37 +111,28 @@ if DEBUG is not True:
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    error_message = None
+    success_message = None
+
     if request.method == 'POST':
         youtube_url = request.form.get('youtube_url')
-        if youtube_url:
-            video_id = extract_video_id(youtube_url)
-            if not video_id:
-                return '유효하지 않은 YouTube URL입니다. 올바른 URL을 입력해주세요.'
+        try:
+            ProcessYoutube(
+                s3=S3(storage_object=s3_object),
+                dynamo_table=DynamoDB(storage_object=table_object),
+                youtube_url=youtube_url,
+                vtt_directory=VTT_DIRECTORY
+            )
+            success_message = '처리 완료되었습니다.'
+        except DynamoOperationError as e:
+            error_message = f'중복된 영상입니다: {e}'
+        except DynamoDuplicatedError as e:
+            error_message = f'중복된 영상입니다: {e}'
+        except Exception as e:
+            # 기타 등등 잡다한 에러 처리하는 곳.
+            error_message = f'에러: {e}'
 
-            video_info = get_video_info(youtube_url)
-            if not video_info:
-                return '영상 정보를 추출하는데 실패했습니다. URL을 확인해주세요.'
-
-            title = video_info.get('title', '제목 없음')
-            datetime_str = get_kst()
-
-            if check_video_exists_in_dynamodb(video_id, title):
-                return '이미 입력되어 있는 영상입니다.'
-
-            vtt_path, error = extract_subtitles(youtube_url, video_id)
-            if error:
-                return f"자막 추출 중 오류가 발생했습니다: {error}"
-
-            content = process_vtt_content(vtt_path)
-            if content:
-                save_to_dynamodb(video_id, title, datetime_str, content)
-                save_to_s3(video_id, title, datetime_str, content)  # 올바른 인자를 사용하여 함수를 호출합니다.
-                return '처리 완료되었습니다.'
-            else:
-                return '자막을 추출하지 못했습니다. 영상에 자막이 없거나 다른 문제가 발생했을 수 있습니다.'
-        return '유효하지 않은 URL입니다. 정확한 YouTube URL을 입력해주세요.'
-    else:
-        return render_template_string(HTML_FORM)
+    return render_template('index.html', error_message=error_message, success_message=success_message)
 
 
 if __name__ == '__main__':
