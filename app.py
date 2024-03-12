@@ -34,14 +34,15 @@ def extract_video_id(youtube_url):
     return None
 
 
-def check_video_exists_in_dynamodb(video_id, title):
-    try:
-        # video_id와 title을 사용하여 DynamoDB에서 항목을 조회합니다.
-        response = table.get_item(Key={'video_id': video_id, 'title': title})
-        return 'Item' in response
-    except Exception as e:
-        print(f"Error checking video in DynamoDB: {e}")
-        return False
+
+# def check_video_exists_in_dynamodb(video_id, title):
+#     try:
+#         # video_id와 title을 사용하여 DynamoDB에서 항목을 조회합니다.
+#         response = table.get_item(Key={'video_id': video_id, 'title': title})
+#         return 'Item' in response
+#     except Exception as e:
+#         print(f"Error checking video in DynamoDB: {e}")
+#         return False
 
 
 # def get_next_num():

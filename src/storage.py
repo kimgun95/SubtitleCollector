@@ -43,3 +43,12 @@ class DynamoDB(Storage):
             )
         except Exception as e:
             print(f"Error saving to DynamoDB: {e}")
+
+    def check_video_exists_in_dynamodb(self, video_id, title):
+        try:
+            # video_id와 title을 사용하여 DynamoDB에서 항목을 조회합니다.
+            response = self.storage.get_item(Key={'video_id': video_id, 'title': title})
+            return 'Item' in response
+        except Exception as e:
+            print(f"Error checking video in DynamoDB: {e}")
+            return False
