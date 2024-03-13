@@ -5,7 +5,7 @@ import subprocess
 
 from src.storage import DynamoDB, S3, Storage
 from src.utils import get_kst, extract_video_id
-
+from src.errors import DynamoDuplicatedError, DynamoOperationError
 
 class Youtube:
     """
@@ -97,7 +97,8 @@ class ProcessYoutube:
         title = video_info.get('title', '제목 없음')
         datetime_str = get_kst()
 
-        self.dynamo_table.check_video_exists_in_dynamodb(video_id, title)
+        if self.dynamo_table.check_video_exists_in_dynamodb(video_id, title):
+            raise DynamoDuplicatedError("Video already exists in DynamoDB")
 
         # throw 되는 exception들은 여기서 처리 하지 않습니다.
         vtt_path = Youtube.extract_subtitles(youtube_url, video_id, vtt_directory)
