@@ -83,7 +83,7 @@ class ProcessYoutube:
     이 클래스를 실행하는 것 자체로 자막 처리를 마칩니다.
     """
 
-    def __init__(self, dynamo_table: DynamoDB | Storage, s3: S3 | Storage, youtube_url: str, vtt_directory: str):
+    def __init__(self, s3: S3 | Storage, dynamo_table: DynamoDB | Storage, youtube_url: str, vtt_directory: str):
         # DI
         self.dynamo_table = dynamo_table
         self.s3 = s3
