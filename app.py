@@ -112,8 +112,13 @@ def post(video_id):
     try:
         # DynamoDB 테이블에서 해당 video_id에 해당하는 게시물 가져오기
         response = table_object.get_item(Key={'video_id': video_id})
-        post = response['Item']
-        print(post)
+        post = response.get('Item', {})
+
+        # 해당 게시물의 video_id와 title로 중복 여부 확인
+        if post:
+            title = post.get('title', '')
+            post['is_duplicate'] = DynamoDB(storage_object=table_object).check_video_exists_in_dynamodb(video_id, title)
+
     except Exception as e:
         print(f"Error retrieving post from DynamoDB: {e}")
         post = {}
