@@ -107,6 +107,18 @@ if DEBUG is not True:
 # HTML_FORM
 # HTML_FORM = """
 # """
+@app.route('/post/<video_id>')
+def post(video_id):
+    try:
+        # DynamoDB 테이블에서 해당 video_id에 해당하는 게시물 가져오기
+        response = table_object.get_item(Key={'video_id': video_id})
+        post = response['Item']
+    except Exception as e:
+        print(f"Error retrieving post from DynamoDB: {e}")
+        post = {}
+
+    return render_template('post.html', post=post)
+
 @app.route('/board')
 def board():
     try:
