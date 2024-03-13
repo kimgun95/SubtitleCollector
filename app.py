@@ -110,7 +110,7 @@ if DEBUG is not True:
 @app.route('/post/<video_id>')
 def post(video_id):
     try:
-        post = DynamoDB(storage_object=table_object).check_video_exists_in_dynamodb(video_id)
+        post = table_object.check_video_exists_in_dynamodb(video_id)
 
     except Exception as e:
         print(f"Error retrieving post from DynamoDB: {e}")
