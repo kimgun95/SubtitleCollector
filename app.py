@@ -110,7 +110,7 @@ if DEBUG is not True:
 @app.route('/post/<video_id>')
 def post(video_id):
     try:
-        response = table_object.storage.get_item(Key={'video_id': video_id})
+        response = DynamoDB(storage_object=table_object).storage.get_item(Key={'video_id': video_id})
         post = response.get('Item', {})
 
     except Exception as e:
