@@ -110,7 +110,7 @@ if DEBUG is not True:
 @app.route('/post/<video_id>/<title>')
 def post(video_id, title):
     try:
-        response = table_object.storage.get_item(Key={'video_id': video_id, 'title': title})
+        response = table_object.get_item(Key={'video_id': video_id, 'title': title})
         post = response.get('Item', {})
 
     except Exception as e:
