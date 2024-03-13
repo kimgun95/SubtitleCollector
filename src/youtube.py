@@ -87,7 +87,9 @@ class ProcessYoutube:
         # DI
         self.dynamo_table = dynamo_table
         self.s3 = s3
-
+        print('ProcessYoutube에서 각 인자 값의 타입 확인하기')
+        print(type(s3))
+        print(type(dynamo_table))
         # logic
         video_id = extract_video_id(youtube_url)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
         video_info = Youtube.get_video_info(video_id)  # throw 되는 exception들은 여기서 처리 하지 않습니다.

@@ -49,6 +49,7 @@ class DynamoDB(Storage):
 
     def check_video_exists_in_dynamodb(self, video_id, title):
         print('dynamo DB에서 중복 데이터 체크')
+        print(type(self.storage))
         try:
             # video_id와 title을 사용하여 DynamoDB에서 항목을 조회합니다.
             response = self.storage.get_item(Key={'video_id': video_id, 'title': title})
