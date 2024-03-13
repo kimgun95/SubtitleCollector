@@ -113,6 +113,7 @@ def post(video_id):
         # DynamoDB 테이블에서 해당 video_id에 해당하는 게시물 가져오기
         response = table_object.get_item(Key={'video_id': video_id})
         post = response['Item']
+        print(post)
     except Exception as e:
         print(f"Error retrieving post from DynamoDB: {e}")
         post = {}
