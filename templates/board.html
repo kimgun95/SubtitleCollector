@@ -2,14 +2,39 @@
 <html>
 <head>
     <title>게시판</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h1>게시판</h1>
-    <ul>
+    <table>
+        <tr>
+            <th>Video ID</th>
+            <th>Title</th>
+            <th>Datetime</th>
+        </tr>
         {% for post in posts %}
-            <li><strong>{{ post[1] }}</strong>: {{ post[2] }}</li>
+            <tr>
+                <td>{{ post['video_id'] }}</td>
+                <td>{{ post['title'] }}</td>
+                <td>{{ post['datetime'] }}</td>
+            </tr>
         {% endfor %}
-    </ul>
+    </table>
 
     <!-- 메인 페이지로 이동하는 버튼 -->
     <a href="/"><button>메인 페이지로 돌아가기</button></a>
