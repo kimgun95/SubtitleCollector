@@ -56,7 +56,7 @@ class DynamoDB(Storage):
             print("title: " + title)
             response = self.storage.get_item(Key={'video_id': video_id, 'title': title})
             print('dynamo DB에서 중복 데이터 체크 성공')
-            print("response: " + response)
+            print(response.Item)
             return 'Item' in response
         except Exception as e:
             # print(f"Error checking video in DynamoDB: {e}") # logger로 따로 처리하세요
