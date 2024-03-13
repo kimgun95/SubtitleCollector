@@ -48,14 +48,16 @@ class DynamoDB(Storage):
             raise DynamoOperationError(f'DynamoDB 저장 에러: {e}')
 
     def check_video_exists_in_dynamodb(self, video_id, title):
+        print('dynamo DB에서 중복 데이터 체크')
         try:
             # video_id와 title을 사용하여 DynamoDB에서 항목을 조회합니다.
             response = self.storage.get_item(Key={'video_id': video_id, 'title': title})
+            print('dynamo DB에서 중복 데이터 체크 성공')
             return 'Item' in response
         except Exception as e:
             # print(f"Error checking video in DynamoDB: {e}") # logger로 따로 처리하세요
             # return False # False를 리턴 한 이유는 중복 처리를 확인 하는거니깐 따로 처리 해 줍니다.
-
+            print('dynamo DB에서 중복 데이터 체크 실패')
             if 'AccessDeniedException' in str(e):
                 # 접근 권한이 없을 때 raise 하는 분기입니다.
                 raise Exception(str(e))
