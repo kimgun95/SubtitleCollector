@@ -30,7 +30,7 @@
         {% for post in posts %}
             <tr>
                 <td>{{ post['video_id'] }}</td>
-                <td>{{ post['title'] }}</td>
+                <td><a href="/post/{{ post['video_id'] }}">{{ post['title'] }}</a></td>
                 <td>{{ post['datetime'] }}</td>
             </tr>
         {% endfor %}
