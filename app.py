@@ -107,7 +107,17 @@ if DEBUG is not True:
 # HTML_FORM
 # HTML_FORM = """
 # """
+@app.route('/board')
+def board():
+    try:
+        # DynamoDB 테이블에서 모든 게시물 가져오기
+        response = table_object.scan()
+        posts = response['Items']
+    except Exception as e:
+        print(f"Error retrieving posts from DynamoDB: {e}")
+        posts = []
 
+    return render_template('board.html', posts=posts)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
