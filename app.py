@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for
 
 from src.errors import DynamoOperationError, DynamoDuplicatedError
-from src.storage import S3, DynamoDB
+from src.storage import DynamoDB
 from src.youtube import ProcessYoutube
 
 load_dotenv()
@@ -102,7 +102,7 @@ def index():
         youtube_url = request.form.get('youtube_url')
         try:
             ProcessYoutube(
-                s3=S3(storage_object=s3_object),
+                # s3=S3(storage_object=s3_object),
                 dynamo_table=DynamoDB(storage_object=table_object),
                 youtube_url=youtube_url,
                 vtt_directory=VTT_DIRECTORY

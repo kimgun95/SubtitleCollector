@@ -3,7 +3,7 @@ import os
 import re
 import subprocess
 
-from src.storage import DynamoDB, S3, Storage
+from src.storage import DynamoDB, Storage
 from src.utils import get_kst, extract_video_id
 from src.errors import DynamoDuplicatedError, DynamoOperationError
 
@@ -86,7 +86,7 @@ class ProcessYoutube:
     def __init__(self, s3: S3 | Storage, dynamo_table: DynamoDB | Storage, youtube_url: str, vtt_directory: str):
         # DI
         self.dynamo_table = dynamo_table
-        self.s3 = s3
+        # self.s3 = s3
         # logic
         video_id = extract_video_id(youtube_url)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
         video_info = Youtube.get_video_info(video_id)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
