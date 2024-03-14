@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ post['title'] }}</title>
+    <title>Post Detail</title>
 </head>
 <body>
-    <h1>{{ post['title'] }}</h1>
-    <p>{{ post['content'] }}</p>
+    <h1>Post Detail</h1>
+    <h2>Title: {{ post.title }}</h2>
+    <form action="{{ url_for('update_post', video_id=post.video_id, title=post.title) }}" method="POST">
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content">{{ post.content }}</textarea><br>
+        <input type="submit" value="Update">
+    </form>
 
-    <!-- 게시판으로 이동하는 버튼 -->
-    <a href="/board"><button>게시판으로 돌아가기</button></a>
+    <form action="{{ url_for('delete_post', video_id=post.video_id, title=post.title) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
+        <input type="submit" value="Delete">
+    </form>
 </body>
 </html>
