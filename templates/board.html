@@ -32,9 +32,23 @@
                 <td><a href="https://youtu.be/{{ post.video_id }}">{{ post.video_id }}</a></td>
                 <td><a href="{{ url_for('post', video_id=post.video_id, title=post.title) }}">{{ post.title }}</a></td>
                 <td>{{ post['datetime'] }}</td>
+                <td><img src="{{ post.thumbnail_link }}" alt="Thumbnail" style="width:100px;height:100px;"></td>
+                <td>{{ post.leetcode_number }}</td>
             </tr>
         {% endfor %}
     </table>
+
+{% if prev_page %}
+    <a href="{{ url_for('board', page=prev_page) }}">Previous</a>
+{% endif %}
+
+{% for num in range(1, total_pages + 1) %}
+    <a href="{{ url_for('board', page=num) }}">{{ num }}</a>
+{% endfor %}
+
+{% if next_page %}
+    <a href="{{ url_for('board', page=next_page) }}">Next</a>
+{% endif %}
 
     <!-- 메인 페이지로 이동하는 버튼 -->
     <a href="/"><button>메인 페이지로 돌아가기</button></a>

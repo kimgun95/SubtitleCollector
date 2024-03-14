@@ -86,12 +86,23 @@ def board():
     try:
         # DynamoDB 테이블에서 모든 게시물 가져오기
         response = table_object.scan()
-        posts = response['Items']
+        all_posts = response['Items']
     except Exception as e:
         print(f"Error retrieving posts from DynamoDB: {e}")
-        posts = []
+        all_posts = []
 
-    return render_template('board.html', posts=posts)
+    page = int(request.args.get('page', 1))  # 페이지 번호, 기본값은 1
+    per_page = 10  # 페이지당 게시물 수
+    total_pages = len(all_posts) // per_page + 1  # 전체 페이지 수
+
+    start_idx = (page - 1) * per_page
+    end_idx = start_idx + per_page
+    posts = all_posts[start_idx:end_idx]  # 해당 페이지의 게시물 데이터
+
+    prev_page = page - 1 if page > 1 else None  # 이전 페이지 번호
+    next_page = page + 1 if page < total_pages else None  # 다음 페이지 번호
+
+    return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
