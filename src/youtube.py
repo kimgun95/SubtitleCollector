@@ -102,4 +102,4 @@ class ProcessYoutube:
 
         content = Youtube.process_vtt_content(vtt_path)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
         self.dynamo_table.save_to(video_id, title, datetime_str, content)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
-        self.s3.save_to(video_id, title, datetime_str, content)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
+        # self.s3.save_to(video_id, title, datetime_str, content)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
