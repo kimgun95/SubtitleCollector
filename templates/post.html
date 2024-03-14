@@ -2,18 +2,21 @@
 <html>
 <head>
     <title>Post Detail</title>
+    <style>
+        #content {
+            width: 100%;
+            height: 70vh;
+            resize: vertical;
+        }
+    </style>
 </head>
 <body>
     <h1>Post Detail</h1>
     <h2>Title: {{ post.title }}</h2>
     <form action="{{ url_for('update_post', video_id=post.video_id, title=post.title) }}" method="POST">
-        <label for="content">Content:</label><br>
         <textarea id="content" name="content">{{ post.content }}</textarea><br>
         <input type="submit" value="Update">
-    </form>
-
-    <form action="{{ url_for('delete_post', video_id=post.video_id, title=post.title) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
-        <input type="submit" value="Delete">
+        <button onclick="window.history.back()">Cancel</button>
     </form>
 </body>
 </html>
