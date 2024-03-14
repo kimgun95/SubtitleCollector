@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for
 
 from src.errors import DynamoOperationError, DynamoDuplicatedError
-from src.storage import S3, DynamoDB
+from src.storage import DynamoDB
 from src.youtube import ProcessYoutube
 
 load_dotenv()
@@ -25,88 +25,6 @@ if DEBUG is not True:
     os.makedirs(VTT_DIRECTORY, exist_ok=True)
 
 
-# next_num = 100000
-
-
-# def extract_video_id(youtube_url):
-#     patterns = [
-#         r'(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)',
-#         r'(?:https?:\/\/)?youtu\.be\/([^?\n]+)',
-#     ]
-#     for pattern in patterns:
-#         match = re.search(pattern, youtube_url)
-#         if match:
-#             return match.group(1)
-#     return None
-
-
-# def check_video_exists_in_dynamodb(video_id, title):
-#     try:
-#         # video_id와 title을 사용하여 DynamoDB에서 항목을 조회합니다.
-#         response = table.get_item(Key={'video_id': video_id, 'title': title})
-#         return 'Item' in response
-#     except Exception as e:
-#         print(f"Error checking video in DynamoDB: {e}")
-#         return False
-
-
-# def get_next_num():
-#     global next_num
-#     next_num += 1
-#     return next_num
-
-
-# def process_vtt_content(vtt_filename):
-#     content = []
-#     try:
-#         with open(vtt_filename, 'r', encoding='utf-8') as file:
-#             for line in file:
-#                 if '-->' in line:
-#                     continue
-#                 line = re.sub(r'<[^>]+>', '', line)
-#                 content.append(line.strip())
-#         os.remove(vtt_filename)
-#     except FileNotFoundError:
-#         print("File not found.")
-#     return ' '.join(content)
-
-
-# def save_to_s3(video_id, title, datetime, content):
-#     clean_content = content.replace('\n', ' ')
-#     csv_content = f"\"{video_id}\",\"{title}\",\"{datetime}\",\"{content}\"\n"
-#     filename = f"{datetime[:10]}.csv"
-#     try:
-#         existing_object = s3_object.get_object(Bucket=BUCKET_NAME, Key=filename)
-#         existing_content = existing_object['Body'].read().decode('utf-8')
-#         csv_content = existing_content + csv_content
-#     except s3_object.exceptions.NoSuchKey:
-#         csv_content = "video_id,title,datetime,content\n" + csv_content
-#     s3_object.put_object(Bucket=BUCKET_NAME, Key=filename, Body=csv_content, ContentType='text/csv')
-
-
-# def save_to_dynamodb(video_id, title, datetime, content):
-#     try:
-#         table.put_item(
-#             Item={
-#                 'video_id': video_id,
-#                 'title': title,
-#                 'datetime': datetime,
-#                 'content': content
-#             }
-#         )
-#     except Exception as e:
-#         print(f"Error saving to DynamoDB: {e}")
-
-
-# def get_kst():
-#     tz_kst = pytz.timezone('Asia/Seoul')
-#     datetime_kst = datetime.now(tz_kst)
-#     return datetime_kst.strftime("%Y-%m-%d %H:%M:%S")
-
-
-# HTML_FORM
-# HTML_FORM = """
-# """
 @app.route('/update_post/<video_id>/<title>', methods=['POST'])
 def update_post(video_id, title):
     try:
@@ -182,12 +100,14 @@ def index():
 
     if request.method == 'POST':
         youtube_url = request.form.get('youtube_url')
+        leetcode_number = request.form.get('leetcode_number')
         try:
             ProcessYoutube(
-                s3=S3(storage_object=s3_object),
+                # s3=S3(storage_object=s3_object),
                 dynamo_table=DynamoDB(storage_object=table_object),
                 youtube_url=youtube_url,
-                vtt_directory=VTT_DIRECTORY
+                vtt_directory=VTT_DIRECTORY,
+                leetcode_number=leetcode_number
             )
             success_message = '처리 완료되었습니다.'
         except DynamoOperationError as e:

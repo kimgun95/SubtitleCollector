@@ -18,29 +18,31 @@ class Storage(ABC):
         ...
 
 
-class S3(Storage):
-    def save_to(self, video_id, title, datetime, content):
-        content = content.replace('\n', ' ')
-        csv_content = f"\"{video_id}\",\"{title}\",\"{datetime}\",\"{content}\"\n"
-        filename = f"{datetime[:10]}.csv"
-        try:
-            existing_object = self.storage.get_object(Bucket=BUCKET_NAME, Key=filename)
-            existing_content = existing_object['Body'].read().decode('utf-8')
-            csv_content = existing_content + csv_content
-        except self.storage.exceptions.NoSuchKey:
-            csv_content = "video_id,title,datetime,content\n" + csv_content
-        self.storage.put_object(Bucket=BUCKET_NAME, Key=filename, Body=csv_content, ContentType='text/csv')
+# class S3(Storage):
+#     def save_to(self, video_id, title, datetime, content):
+#         content = content.replace('\n', ' ')
+#         csv_content = f"\"{video_id}\",\"{title}\",\"{datetime}\",\"{content}\"\n"
+#         filename = f"{datetime[:10]}.csv"
+#         try:
+#             existing_object = self.storage.get_object(Bucket=BUCKET_NAME, Key=filename)
+#             existing_content = existing_object['Body'].read().decode('utf-8')
+#             csv_content = existing_content + csv_content
+#         except self.storage.exceptions.NoSuchKey:
+#             csv_content = "video_id,title,datetime,content\n" + csv_content
+#         self.storage.put_object(Bucket=BUCKET_NAME, Key=filename, Body=csv_content, ContentType='text/csv')
 
 
 class DynamoDB(Storage):
-    def save_to(self, video_id, title, datetime, content):
+    def save_to(self, video_id, title, datetime, content, thumbnail, leetcode_number):
         try:
             self.storage.put_item(
                 Item={
                     'video_id': video_id,
                     'title': title,
                     'datetime': datetime,
-                    'content': content
+                    'content': content,
+                    'thumbnail': thumbnail,
+                    'leetcode_number': leetcode_number
                 }
             )
         except Exception as e:
