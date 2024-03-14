@@ -100,12 +100,14 @@ def index():
 
     if request.method == 'POST':
         youtube_url = request.form.get('youtube_url')
+        leetcode_number = request.form.get('leetcode_number')
         try:
             ProcessYoutube(
                 # s3=S3(storage_object=s3_object),
                 dynamo_table=DynamoDB(storage_object=table_object),
                 youtube_url=youtube_url,
-                vtt_directory=VTT_DIRECTORY
+                vtt_directory=VTT_DIRECTORY,
+                leetcode_number=leetcode_number
             )
             success_message = '처리 완료되었습니다.'
         except DynamoOperationError as e:

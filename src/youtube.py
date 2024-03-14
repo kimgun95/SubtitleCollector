@@ -83,7 +83,8 @@ class ProcessYoutube:
     이 클래스를 실행하는 것 자체로 자막 처리를 마칩니다.
     """
 
-    def __init__(self, s3: S3 | Storage, dynamo_table: DynamoDB | Storage, youtube_url: str, vtt_directory: str):
+    def __init__(self, dynamo_table: DynamoDB | Storage, youtube_url: str, vtt_directory: str,
+                 leetcode_number: int):
         # DI
         self.dynamo_table = dynamo_table
         # self.s3 = s3
@@ -93,6 +94,7 @@ class ProcessYoutube:
 
         title = video_info.get('title', '제목 없음')
         datetime_str = get_kst()
+        thumbnail_url = video_info.get('thumbnail')
 
         if self.dynamo_table.check_video_exists_in_dynamodb(video_id, title):
             raise DynamoDuplicatedError("Video already exists in DynamoDB")
@@ -101,5 +103,5 @@ class ProcessYoutube:
         vtt_path = Youtube.extract_subtitles(youtube_url, video_id, vtt_directory)
 
         content = Youtube.process_vtt_content(vtt_path)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
-        self.dynamo_table.save_to(video_id, title, datetime_str, content)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
+        self.dynamo_table.save_to(video_id, title, datetime_str, content, thumbnail_url, leetcode_number)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
         # self.s3.save_to(video_id, title, datetime_str, content)  # throw 되는 exception들은 여기서 처리 하지 않습니다.

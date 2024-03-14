@@ -33,14 +33,16 @@ class Storage(ABC):
 
 
 class DynamoDB(Storage):
-    def save_to(self, video_id, title, datetime, content):
+    def save_to(self, video_id, title, datetime, content, thumbnail, leetcode_number):
         try:
             self.storage.put_item(
                 Item={
                     'video_id': video_id,
                     'title': title,
                     'datetime': datetime,
-                    'content': content
+                    'content': content,
+                    'thumbnail': thumbnail,
+                    'leetcode_number': leetcode_number
                 }
             )
         except Exception as e:
