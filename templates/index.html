@@ -21,37 +21,6 @@
             border-radius: 4px;
         }
     </style>
-
-    <!--<script>
-        function submitForm(event) {
-            event.preventDefault();
-            const url = document.getElementById('youtube_url').value;
-            const formData = new FormData();
-            formData.append('youtube_url', url);
-
-            // 프로그레스 바와 메시지 초기화
-            const progressBar = document.getElementById('progress');
-            const messageDiv = document.getElementById('message');
-            progressBar.style.display = 'block';
-            progressBar.value = 0;
-            messageDiv.innerText = '';  // 메시지 초기화
-
-            fetch('/', {
-                method: 'POST',
-                body: formData
-            })
-            .then(function (response) {
-                return response.text();
-            })
-            .then(function (text) {
-                progressBar.value = 100;  // 프로그레스 바를 100%로
-                messageDiv.innerText = text;  // 완료 메시지 표시
-            })
-            .catch(function (error) {
-                messageDiv.innerText = 'Error: ' + error;
-            });
-        }
-    </script>-->
 </head>
 <body>
 <h2>유튜브 영상 URL을 입력하세요</h2>
