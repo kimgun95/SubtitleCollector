@@ -24,6 +24,30 @@ DEBUG = bool(os.getenv('DEBUG'))
 if DEBUG is not True:
     os.makedirs(VTT_DIRECTORY, exist_ok=True)
 
+@app.route('/search')
+def search():
+    search_query = request.args.get('q')
+    search_field = request.args.get('search_field')
+
+    if not search_query or not search_field:
+        # 검색어 또는 검색 필드가 제공되지 않은 경우
+        return "검색어와 검색 필드를 모두 제공해야 합니다."
+
+    if search_field == 'leetcode_number':
+        try:
+            response = table_object.scan(
+                FilterExpression=Attr('leetcode_number').eq(int(search_query))
+            )
+            search_results = response['Items']
+        except Exception as e:
+            print(f"Error searching by leetcode_number: {e}")
+            search_results = []
+    else:
+        # 올바르지 않은 검색 필드를 선택한 경우
+        return "올바른 검색 필드를 선택하세요 (title 또는 leetcode_number)."
+
+    # 검색 결과를 템플릿으로 렌더링하여 반환
+    return render_template('search_results.html', search_query=search_query, search_field=search_field, search_results=search_results)
 
 @app.route('/update_post/<video_id>/<title>', methods=['POST'])
 def update_post(video_id, title):
