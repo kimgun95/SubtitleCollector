@@ -46,6 +46,7 @@ def search():
     if search_field == 'leetcode_number':
         try:
             response = table_object.query(
+                IndexName='leetcode_number-index',
                 KeyConditionExpression=Key('leetcode_number').eq(int(search_query))
             )
             search_results = response['Items']
