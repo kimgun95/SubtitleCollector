@@ -96,7 +96,7 @@ class ProcessYoutube:
         datetime_str = get_kst()
         thumbnail_url = video_info.get('thumbnail')
 
-        if self.dynamo_table.check_video_exists_in_dynamodb(video_id, leetcode_number):
+        if self.dynamo_table.check_video_exists_in_dynamodb(video_id):
             raise DynamoDuplicatedError("Video already exists in DynamoDB")
 
         # throw 되는 exception들은 여기서 처리 하지 않습니다.
