@@ -41,7 +41,7 @@
         {% for post in posts %}
             <tr>
                 <td><a href="https://youtu.be/{{ post.video_id }}">{{ post.video_id }}</a></td>
-                <td><a href="{{ url_for('post', video_id=post.video_id, title=post.title) }}">{{ post.title }}</a></td>
+                <td><a href="{{ url_for('post', video_id=post.video_id) }}">{{ post.title }}</a></td>
                 <td>{{ post['datetime'] }}</td>
                 <td><img src="{{ post.thumbnail }}" alt="Thumbnail" style="width:100px;height:100px;"></td>
                 <td>{{ post.leetcode_number }}</td>
