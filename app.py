@@ -49,7 +49,7 @@ def search():
             print('검색한 숫자 값: ', int(search_query))
             print('검색한 숫자 값 타입: ', type(int(search_query)))
             response = table_object.query(
-                # TableName='your_table_name',
+                TableName='Subtitle-Ondemand',
                 IndexName='leetcode_number-index',  # 생성한 글로벌 보조 인덱스 이름
                 KeyConditionExpression='leetcode_number = :number',
                 ExpressionAttributeValues={
