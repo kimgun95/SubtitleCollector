@@ -117,10 +117,10 @@ def delete_post(video_id):
         # 실패할 경우 에러 메시지를 출력하고 이전 페이지로 리다이렉트합니다.
         return redirect(request.referrer or url_for('board'))  # 이전 페이지로 리다이렉트
 
-@app.route('/post/<video_id>/<leetcode_number>')
-def post(video_id, leetcode_number):
+@app.route('/post/<video_id>')
+def post(video_id):
     try:
-        response = table_object.get_item(Key={'video_id': video_id, 'leetcode_number': leetcode_number})
+        response = table_object.get_item(Key={'video_id': video_id})
         post = response.get('Item', {})
 
     except Exception as e:
