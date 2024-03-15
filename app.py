@@ -24,6 +24,16 @@ DEBUG = bool(os.getenv('DEBUG'))
 if DEBUG is not True:
     os.makedirs(VTT_DIRECTORY, exist_ok=True)
 
+def pagination(data, page, per_page):
+    total_pages = len(data) // per_page + 1
+    start_idx = (page - 1) * per_page
+    end_idx = start_idx + per_page
+    paginated_data = data[start_idx:end_idx]
+    prev_page = page - 1 if page > 1 else None
+    next_page = page + 1 if page < total_pages else None
+    return paginated_data, prev_page, next_page, total_pages
+
+
 @app.route('/search')
 def search():
     search_query = request.args.get('q')
@@ -46,8 +56,12 @@ def search():
         # 올바르지 않은 검색 필드를 선택한 경우
         return "올바른 검색 필드를 선택하세요 (title 또는 leetcode_number)."
 
-    # 검색 결과를 템플릿으로 렌더링하여 반환
-    return redirect(url_for('board', search_query=search_query, search_field=search_field))
+    page = int(request.args.get('page', 1))  # 페이지 번호, 기본값은 1
+    per_page = 10  # 페이지당 게시물 수
+
+    posts, prev_page, next_page, total_pages = pagination(search_results, page, per_page)
+
+    return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
 
 @app.route('/update_post/<video_id>/<title>', methods=['POST'])
 def update_post(video_id, title):
@@ -117,14 +131,8 @@ def board():
 
     page = int(request.args.get('page', 1))  # 페이지 번호, 기본값은 1
     per_page = 10  # 페이지당 게시물 수
-    total_pages = len(all_posts) // per_page + 1  # 전체 페이지 수
 
-    start_idx = (page - 1) * per_page
-    end_idx = start_idx + per_page
-    posts = all_posts[start_idx:end_idx]  # 해당 페이지의 게시물 데이터
-
-    prev_page = page - 1 if page > 1 else None  # 이전 페이지 번호
-    next_page = page + 1 if page < total_pages else None  # 다음 페이지 번호
+    posts, prev_page, next_page, total_pages = pagination(all_posts, page, per_page)
 
     return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
 
