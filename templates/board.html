@@ -24,7 +24,7 @@
     <!-- 검색 폼 추가 -->
     <form action="{{ url_for('search') }}" method="GET">
         <label for="search_query">검색:</label>
-        <input type="text" id="search_query" name="q" placeholder="검색어를 입력하세요">
+        <input type="number" id="search_query" name="q" placeholder="검색어를 입력하세요">
         <select name="search_field">
             <option value="leetcode_number">LeetCode Number</option>
         </select>

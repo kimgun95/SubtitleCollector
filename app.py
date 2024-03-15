@@ -46,6 +46,7 @@ def search():
 
     if search_field == 'leetcode_number':
         try:
+            print('검색한 숫자 값: ', int(search_query))
             response = table_object.query(
                 IndexName='leetcode_number-index',
                 KeyConditionExpression=Key('leetcode_number').eq(int(search_query))
