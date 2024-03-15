@@ -47,7 +47,7 @@ def search():
         return "올바른 검색 필드를 선택하세요 (title 또는 leetcode_number)."
 
     # 검색 결과를 템플릿으로 렌더링하여 반환
-    return render_template('search_results.html', search_query=search_query, search_field=search_field, search_results=search_results)
+    return redirect(url_for('board', search_query=search_query, search_field=search_field))
 
 @app.route('/update_post/<video_id>/<title>', methods=['POST'])
 def update_post(video_id, title):
