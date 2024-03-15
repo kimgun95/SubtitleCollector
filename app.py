@@ -3,6 +3,7 @@ import os
 import boto3
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for
+from boto3.dynamodb.conditions import Key
 
 from src.errors import DynamoOperationError, DynamoDuplicatedError
 from src.storage import DynamoDB
