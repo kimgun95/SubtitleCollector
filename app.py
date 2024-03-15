@@ -47,10 +47,13 @@ def search():
     if search_field == 'leetcode_number':
         try:
             print('검색한 숫자 값: ', int(search_query))
-            print('검색한 숫자 값 타입: ', type(search_query))
+            print('검색한 숫자 값 타입: ', type(int(search_query)))
             response = table_object.query(
                 IndexName='leetcode_number-index',
-                KeyConditionExpression=Key('leetcode_number').eq(search_query)
+                KeyConditionExpression=Key('leetcode_number').eq(':number'),
+                ExpressionAttributeValues={
+                    ':number': int(search_query)
+                }
             )
             search_results = response['Items']
             print("검색된 포스트의 총 갯수:", len(search_results))
