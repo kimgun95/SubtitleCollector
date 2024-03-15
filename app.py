@@ -51,7 +51,7 @@ def search():
                 KeyConditionExpression=Key('leetcode_number').eq(int(search_query))
             )
             search_results = response['Items']
-            print("검색된 포스트의 총 갯수:" + search_results)
+            print("검색된 포스트의 총 갯수:", len(search_results))
         except Exception as e:
             print(f"Error searching by leetcode_number: {e}")
             search_results = []
