@@ -52,7 +52,7 @@ def search():
                 IndexName='leetcode_number-index',
                 KeyConditionExpression=Key('leetcode_number').eq(':number'),
                 ExpressionAttributeValues={
-                    ':number': int(search_query)
+                    ':number': {'N': int(search_query)}
                 }
             )
             search_results = response['Items']
