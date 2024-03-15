@@ -17,7 +17,7 @@ app = Flask(__name__)
 # DynamoDB와 S3 클라이언트 설정
 s3_object = boto3.client('s3', region_name='ap-northeast-2')
 dynamodb_object = boto3.resource('dynamodb', region_name='ap-northeast-2')
-table_object = dynamodb_object.Table('Subtitle')
+table_object = dynamodb_object.Table('Subtitle-Ondemand')
 
 # BUCKET_NAME = 'subtitle-collection'
 VTT_DIRECTORY = '/subtitle/vtt'
@@ -49,10 +49,11 @@ def search():
             print('검색한 숫자 값: ', int(search_query))
             print('검색한 숫자 값 타입: ', type(int(search_query)))
             response = table_object.query(
-                IndexName='leetcode_number-index',
-                KeyConditionExpression=Key('leetcode_number').eq(':number'),
+                # TableName='your_table_name',
+                IndexName='leetcode_number_index',  # 생성한 글로벌 보조 인덱스 이름
+                KeyConditionExpression='leetcode_number = :number',
                 ExpressionAttributeValues={
-                    ':number': {'N': int(search_query)}
+                    ':number': {'N': str(search_query)}  # leetcode_number는 숫자형이므로 문자열로 변환하여 전달
                 }
             )
             search_results = response['Items']
@@ -74,8 +75,8 @@ def search():
 
     return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
 
-@app.route('/update_post/<video_id>/<title>', methods=['POST'])
-def update_post(video_id, title):
+@app.route('/update_post/<video_id>', methods=['POST'])
+def update_post(video_id):
     try:
         # 새로운 content
         new_content = request.form.get('content')
@@ -83,8 +84,7 @@ def update_post(video_id, title):
         # 실제로 업데이트 작업을 수행하는 코드
         response = table_object.update_item(
             Key={
-                'video_id': video_id,
-                'title': title
+                'video_id': video_id
             },
             UpdateExpression='SET content = :val',
             ExpressionAttributeValues={
@@ -94,20 +94,19 @@ def update_post(video_id, title):
         print("Post updated successfully")
 
         # 업데이트가 성공하면 post 페이지로 리다이렉트합니다.
-        return redirect(url_for('post', video_id=video_id, title=title))
+        return redirect(url_for('post', video_id=video_id))
     except Exception as e:
         print(f"Error updating post: {e}")
         # 실패할 경우 에러 메시지를 출력하고 이전 페이지로 리다이렉트합니다.
         return redirect(request.referrer or url_for('board'))  # 이전 페이지로 리다이렉트
 
-@app.route('/delete_post/<video_id>/<title>', methods=['POST'])
-def delete_post(video_id, title):
+@app.route('/delete_post/<video_id>', methods=['POST'])
+def delete_post(video_id):
     try:
         # 여기에 삭제 작업을 수행하는 코드를 추가하세요
         table_object.delete_item(
             Key={
-                'video_id': video_id,
-                'title': title
+                'video_id': video_id
             }
         )
         print("Post deleted successfully")
@@ -118,10 +117,10 @@ def delete_post(video_id, title):
         # 실패할 경우 에러 메시지를 출력하고 이전 페이지로 리다이렉트합니다.
         return redirect(request.referrer or url_for('board'))  # 이전 페이지로 리다이렉트
 
-@app.route('/post/<video_id>/<title>')
-def post(video_id, title):
+@app.route('/post/<video_id>')
+def post(video_id):
     try:
-        response = table_object.get_item(Key={'video_id': video_id, 'title': title})
+        response = table_object.get_item(Key={'video_id': video_id})
         post = response.get('Item', {})
 
     except Exception as e:
