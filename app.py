@@ -45,8 +45,8 @@ def search():
 
     if search_field == 'leetcode_number':
         try:
-            response = table_object.scan(
-                FilterExpression=Attr('leetcode_number').eq(int(search_query))
+            response = table_object.query(
+                KeyConditionExpression=Key('leetcode_number').eq(int(search_query))
             )
             search_results = response['Items']
             print("검색된 포스트의 총 갯수:" + search_results)
