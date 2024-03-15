@@ -53,7 +53,7 @@ def search():
                 IndexName='leetcode_number-index',  # 생성한 글로벌 보조 인덱스 이름
                 KeyConditionExpression='leetcode_number = :number',
                 ExpressionAttributeValues={
-                    ':number': {'N': int(search_query)}  # leetcode_number는 숫자형이므로 문자열로 변환하여 전달
+                    ':number': {'N': str(int(search_query))}  # leetcode_number는 숫자형이므로 문자열로 변환하여 전달
                 }
             )
             search_results = response['Items']
