@@ -49,6 +49,7 @@ def search():
                 FilterExpression=Attr('leetcode_number').eq(int(search_query))
             )
             search_results = response['Items']
+            print("검색된 포스트의 총 갯수:" + search_results)
         except Exception as e:
             print(f"Error searching by leetcode_number: {e}")
             search_results = []
@@ -60,6 +61,9 @@ def search():
     per_page = 10  # 페이지당 게시물 수
 
     posts, prev_page, next_page, total_pages = pagination(search_results, page, per_page)
+
+    for post in posts:
+        print("포스트의 제목: " + post.title)
 
     return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
 
