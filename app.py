@@ -49,8 +49,12 @@ def search():
             print('검색한 숫자 값: ', int(search_query))
             print('검색한 숫자 값 타입: ', type(int(search_query)))
             response = table_object.query(
+                TableName='Subtitle-Ondemand',
                 IndexName='leetcode_number-index',  # 생성한 글로벌 보조 인덱스 이름
-                KeyConditionExpression=Key('leetcode_number').eq(search_query)
+                KeyConditionExpression='leetcode_number = :number',
+                ExpressionAttributeValues={
+                    ':number': int(search_query)
+                }
             )
             search_results = response['Items']
             print("검색된 포스트의 총 갯수:", len(search_results))
