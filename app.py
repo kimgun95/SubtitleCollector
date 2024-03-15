@@ -70,9 +70,6 @@ def search():
 
     posts, prev_page, next_page, total_pages = pagination(search_results, page, per_page)
 
-    for post in posts:
-        print("포스트의 제목: " + post.title)
-
     return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
 
 @app.route('/update_post/<video_id>', methods=['POST'])
