@@ -130,6 +130,7 @@ def search():
 
     return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
 
+
 @app.route('/update_post/<video_id>', methods=['POST'])
 def update_post(video_id):
     try:
@@ -155,6 +156,7 @@ def update_post(video_id):
         # 실패할 경우 에러 메시지를 출력하고 이전 페이지로 리다이렉트합니다.
         return redirect(request.referrer or url_for('board'))  # 이전 페이지로 리다이렉트
 
+
 @app.route('/delete_post/<video_id>', methods=['POST'])
 def delete_post(video_id):
     try:
@@ -172,6 +174,7 @@ def delete_post(video_id):
         # 실패할 경우 에러 메시지를 출력하고 이전 페이지로 리다이렉트합니다.
         return redirect(request.referrer or url_for('board'))  # 이전 페이지로 리다이렉트
 
+
 @app.route('/post/<video_id>')
 def post(video_id):
     try:
@@ -183,6 +186,7 @@ def post(video_id):
         post = {}
 
     return render_template('post.html', post=post)
+
 
 @app.route('/board')
 def board():
@@ -200,6 +204,7 @@ def board():
     posts, prev_page, next_page, total_pages = pagination(all_posts, page, per_page)
 
     return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
