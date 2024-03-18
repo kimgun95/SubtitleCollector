@@ -1,16 +1,17 @@
+import datetime
 import json
 import os
 import re
 import subprocess
 
+from src.errors import DynamoDuplicatedError
 from src.storage import DynamoDB, Storage
 from src.utils import get_kst, extract_video_id
-from src.errors import DynamoDuplicatedError, DynamoOperationError
+
 
 class Youtube:
     """
     yt-dlp와 관련된 로직만 따로 모아둔 클래스 입니다.
-    외부적으로 이 클래스를 사용할 일이 없습니다.
     """
 
     @staticmethod
@@ -77,6 +78,36 @@ class Youtube:
         else:
             raise Exception('자막을 추출하지 못했습니다. 영상에 자막이 없거나 다른 문제가 발생했을 수 있습니다.')
 
+    @staticmethod
+    def search_bulk(keyword: str, max_results: int = 30):
+        # Parameters for calling yt-dlp
+        command = [
+            'yt-dlp',
+            f'ytsearch{max_results}:{keyword}',
+            "--dump-json",
+            "--default-search", "ytsearch",
+            "--no-playlist", "--no-check-certificate", "--geo-bypass",
+            "--flat-playlist", "--skip-download", "--quiet", "--ignore-errors"
+        ]
+        try:
+            # Get the output and analyze it
+            output = subprocess.check_output(command).decode('utf-8')
+            videos = [json.loads(line) for line in output.splitlines()]
+            # Simplify the results for displaying to the user
+            simplified_results = []
+            for video in videos:
+                simplified_results.append({
+                    "title": video.get("title", "N/A"),
+                    "video_id": video.get("id", "N/A"),
+                    # "duration": str(datetime.timedelta(seconds=video.get("duration", 0))),
+                    "thumbnail": video.get("thumbnails", "N/A")[-1].get('url', 'N/A')
+                })
+
+            return simplified_results
+
+        except subprocess.CalledProcessError:
+            return []
+
 
 class ProcessYoutube:
     """
@@ -103,5 +134,6 @@ class ProcessYoutube:
         vtt_path = Youtube.extract_subtitles(youtube_url, video_id, vtt_directory)
 
         content = Youtube.process_vtt_content(vtt_path)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
-        self.dynamo_table.save_to(video_id, title, datetime_str, content, thumbnail_url, leetcode_number)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
+        self.dynamo_table.save_to(video_id, title, datetime_str, content, thumbnail_url,
+                                  leetcode_number)  # throw 되는 exception들은 여기서 처리 하지 않습니다.
         # self.s3.save_to(video_id, title, datetime_str, content)  # throw 되는 exception들은 여기서 처리 하지 않습니다.

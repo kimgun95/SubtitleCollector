@@ -2,3 +2,5 @@ flask
 boto3
 pytz
 python-dotenv
+datasets
+pandas

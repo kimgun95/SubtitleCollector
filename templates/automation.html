@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>검색 페이지</title>
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>검색 페이지</h1>
+
+<h3>검색에 시간이 걸립니다. 100개 영상 검색 중이라 천천히 기다리시면 됩니다.</h3>
+
+<form method="POST" action="/yt-dlp-search">
+    <table>
+        <thead>
+        <th>Leetcode Number</th>
+        <th>Search</th>
+        </thead>
+
+        <tbody>
+        <td><input type="text" name="leetcode_number"></td>
+        <td><input type="submit" value="검색"></td>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>

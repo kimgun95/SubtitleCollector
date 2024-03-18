@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+<h2>Query : {{ query }}</h2>
+<a href="/automation">이전 페이지</a>
+
+<br/><br/>
+<div id="add_res"></div>
+
+<table>
+    <thead>
+    <th>Leetcode number</th>
+    <th>Thumbnail</th>
+    <th>Title</th>
+    <th>Video ID</th>
+    <th>Add</th>
+    </thead>
+    <tbody>
+    {% for video in videos %}
+        <tr>
+            <form hx-post="/add_one" hx-target="#add_res">
+                <td>
+                    <input type="hidden" name="leetcode_number" value="{{ leetcode_number }}">
+                    <p>{{ leetcode_number }}</p>
+                </td>
+                <td><img src="{{ video.thumbnail }}" alt="Thumbnail" style="width:100px;height:100px;"></td>
+                <td>{{ video.title }}</td>
+                <td>
+                    <input type="hidden" name="video_id" value="{{ video.video_id }}">
+                    <a href="https://youtu.be/{{ video.video_id }}"><p>{{ video.video_id }}</p></a>
+                </td>
+                <td>
+                    <input type="submit">
+                </td>
+            </form>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
