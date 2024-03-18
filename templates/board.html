@@ -20,34 +20,41 @@
     </style>
 </head>
 <body>
-    <h1>게시판</h1>
-    <!-- 검색 폼 추가 -->
-    <form action="{{ url_for('search') }}" method="GET">
-        <label for="search_query">검색:</label>
-        <input type="number" id="search_query" name="q" placeholder="검색어를 입력하세요">
-        <select name="search_field">
-            <option value="leetcode_number">LeetCode Number</option>
-        </select>
-        <button type="submit">검색</button>
-    </form>
-    <table>
+<h1>게시판</h1>
+<!-- 검색 폼 추가 -->
+<form action="{{ url_for('search') }}" method="GET">
+    <label for="search_query">검색:</label>
+    <input type="number" id="search_query" name="q" placeholder="검색어를 입력하세요">
+    <select name="search_field">
+        <option value="leetcode_number">LeetCode Number</option>
+    </select>
+    <button type="submit">검색</button>
+</form>
+<table>
+    <tr>
+        <th>Leetcode number</th>
+        <th>Thumbnail</th>
+        <th>Title</th>
+        <th>Datetime</th>
+        <th>Video ID</th>
+        <th>Delete</th>
+    </tr>
+    {% for post in posts %}
         <tr>
-            <th>Video ID</th>
-            <th>Title</th>
-            <th>Datetime</th>
-            <th>Thumbnail</th>
-            <th>Leetcode number</th>
+            <td>{{ post.leetcode_number }}</td>
+            <td><img src="{{ post.thumbnail }}" alt="Thumbnail" style="width:100px;height:100px;"></td>
+            <td><a href="{{ url_for('post', video_id=post.video_id) }}">{{ post.title }}</a></td>
+            <td>{{ post['datetime'] }}</td>
+            <td><a href="https://youtu.be/{{ post.video_id }}">{{ post.video_id }}</a></td>
+            <td>
+                <form action="{{ url_for('delete_post', video_id=post.video_id) }}" method="POST"
+                      onsubmit="return confirm('Are you sure you want to delete this post?');">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
-        {% for post in posts %}
-            <tr>
-                <td><a href="https://youtu.be/{{ post.video_id }}">{{ post.video_id }}</a></td>
-                <td><a href="{{ url_for('post', video_id=post.video_id) }}">{{ post.title }}</a></td>
-                <td>{{ post['datetime'] }}</td>
-                <td><img src="{{ post.thumbnail }}" alt="Thumbnail" style="width:100px;height:100px;"></td>
-                <td>{{ post.leetcode_number }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+    {% endfor %}
+</table>
 
 {% if prev_page %}
     <a href="{{ url_for('board', page=prev_page) }}">Previous</a>
@@ -61,7 +68,9 @@
     <a href="{{ url_for('board', page=next_page) }}">Next</a>
 {% endif %}
 
-    <!-- 메인 페이지로 이동하는 버튼 -->
-    <a href="/"><button>메인 페이지로 돌아가기</button></a>
+<!-- 메인 페이지로 이동하는 버튼 -->
+<a href="/">
+    <button>메인 페이지로 돌아가기</button>
+</a>
 </body>
 </html>
