@@ -1,13 +1,14 @@
 import os
 
 import boto3
+import pandas as pd
+from datasets import load_dataset
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for
-from boto3.dynamodb.conditions import Key
 
 from src.errors import DynamoOperationError, DynamoDuplicatedError
 from src.storage import DynamoDB
-from src.youtube import ProcessYoutube
+from src.youtube import ProcessYoutube, Youtube
 
 load_dotenv()
 
@@ -25,6 +26,7 @@ DEBUG = bool(os.getenv('DEBUG'))
 if DEBUG is not True:
     os.makedirs(VTT_DIRECTORY, exist_ok=True)
 
+
 def pagination(data, page, per_page):
     total_pages = len(data) // per_page + 1
     start_idx = (page - 1) * per_page
@@ -33,6 +35,62 @@ def pagination(data, page, per_page):
     prev_page = page - 1 if page > 1 else None
     next_page = page + 1 if page < total_pages else None
     return paginated_data, prev_page, next_page, total_pages
+
+
+@app.route('/automation', methods=['GET'])
+def automation():
+    return render_template('automation.html')
+
+
+@app.route('/yt-dlp-search', methods=['POST'])
+def yt_dlp_search():
+    leetcode_number = request.form['leetcode_number']
+    datasets = pd.DataFrame(load_dataset("greengerong/leetcode")['train'])
+    title = datasets.loc[int(leetcode_number) - 1, 'title']
+
+    query = f'leetcode {leetcode_number} {title}'
+
+    videos = Youtube.search_bulk(keyword=query, max_results=100)
+
+    return render_template('automation_search_result.html', query=query, leetcode_number=leetcode_number, videos=videos)
+
+
+@app.route('/add_one', methods=['POST'])
+def add_one():
+    error_message = None
+    success_message = None
+
+    video_id = request.form.get('video_id', None)
+    leetcode_number = request.form.get('leetcode_number', None)
+
+    if video_id is None:
+        error_message = 'No video id provided.'
+        return render_template('automation_add_result.html', error_message=error_message)
+    if leetcode_number is None:
+        error_message = f'Leetcode id not found.'
+        return render_template('automation_add_result.html', error_message=error_message)
+
+    youtube_url = f'https://youtu.be/{video_id}'
+
+    try:
+        ProcessYoutube(
+            # s3=S3(storage_object=s3_object),
+            dynamo_table=DynamoDB(storage_object=table_object),
+            youtube_url=youtube_url,
+            vtt_directory=VTT_DIRECTORY,
+            leetcode_number=int(leetcode_number)
+        )
+        success_message = '처리 완료되었습니다.'
+    except DynamoOperationError as e:
+        error_message = f'중복된 영상입니다: {e}'
+    except DynamoDuplicatedError as e:
+        error_message = f'중복된 영상입니다: {e}'
+    except Exception as e:
+        # 기타 등등 잡다한 에러 처리하는 곳.
+        error_message = f'에러: {e}'
+
+    return render_template('automation_add_result.html',
+                           success_message=success_message, error_message=error_message)
 
 
 @app.route('/search')
