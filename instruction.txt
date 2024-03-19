@@ -1,0 +1,70 @@
+    1  cd /
+    2  ls
+    3  history
+    4  cd /
+    5  ls
+    6  sudo mkdir SubtitleCollector
+    7  cd Subtitle*
+    8  ls
+    9  sudo yum update
+   10  sudo yum update -y
+   11  sudo yum install -y git
+   12  cd ..
+   13  sudo git clone https://github.com/swerd245/SubtitleCollector/tree/feat-UI.git
+   14  sudo git clone https://github.com/swerd245/SubtitleCollector.git
+   15  ls
+   16  cd Sub*
+   17  ls
+   18  cd /var/src
+   19  cd /var
+   20  ls
+   21  sudo mkdir python
+   22  cd python
+   23  sudo yum groupinstall "Development Tools" -y
+   24  history
+   25  sudo yum install openssl-devel bzip2-devel libffi-devel -y
+   26  wget https://www.python.org/ftp/python/3.12.0/Python-3.12.0.tar.xz
+   27  sudo wget https://www.python.org/ftp/python/3.12.0/Python-3.12.0.tar.xz
+   28  ls
+   29  sudo tar -xf Python-3.12.0.tar.xz
+   30  ls
+   31  cd Py*
+   32  ls
+   33  cd Python-3.12.0
+   34  ls
+   35  ./configure --enable-optimizations
+   36  sudo ./configure --enable-optimizations
+   37  sudo make -j 1
+   38  python3 --version
+   39  python3.12 --version
+   40  clear
+   41  cd /
+   42  ls
+   43  cd Subtitle*
+   44  ls
+   45  python3.12 app.py
+   46  sudo pip3.12 install boto3
+   47  pip3.12 install boto3
+   48  python3.12 app.py
+   49  pip3.12 install pandas
+   50  python3.12 app.py
+   51  pip3.12 install datasets
+   52  pip3.12 install flask
+   53  pip3.12 install pytz
+   54  python3.12 app.py
+   55  pip3.12 install dotenv
+   56  python3.12 app.py
+   57  pip3.12 install load_dotenv
+   58  python3.12 app.py
+   59  sudo chmod 777 ./
+   60  ls -al
+   61  sudo chown $USER:$USER /subtitle
+   62  sudo mkdir /subtitle
+   63  sudo chown $USER:$USER /subtitle
+   64  sudo chmod 777 /subtitle
+   65  python3.12 app.py
+   66  clear
+   67  pip3.12 install yt-dlp
+   68  python3.12 app.py
+   69  nohup python3.12 app.py &
+   70  history > instruction.txt

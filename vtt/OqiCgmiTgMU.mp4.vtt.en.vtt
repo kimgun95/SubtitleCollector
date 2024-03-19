@@ -1,0 +1,1152 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.820 --> 00:00:04.970 align:start position:0%
+ 
+hello<00:00:03.480><c> and</c><00:00:03.720><c> welcome</c><00:00:03.840><c> to</c><00:00:04.080><c> another</c><00:00:04.259><c> leak</c><00:00:04.799><c> code</c>
+
+00:00:04.970 --> 00:00:04.980 align:start position:0%
+hello and welcome to another leak code
+ 
+
+00:00:04.980 --> 00:00:07.130 align:start position:0%
+hello and welcome to another leak code
+solution<00:00:05.279><c> video</c><00:00:05.580><c> this</c><00:00:06.000><c> is</c><00:00:06.060><c> problem</c><00:00:06.299><c> number</c><00:00:06.600><c> 16</c>
+
+00:00:07.130 --> 00:00:07.140 align:start position:0%
+solution video this is problem number 16
+ 
+
+00:00:07.140 --> 00:00:10.070 align:start position:0%
+solution video this is problem number 16
+threesome<00:00:08.099><c> closest</c><00:00:08.400><c> for</c><00:00:09.179><c> this</c><00:00:09.420><c> problem</c><00:00:09.599><c> we're</c>
+
+00:00:10.070 --> 00:00:10.080 align:start position:0%
+threesome closest for this problem we're
+ 
+
+00:00:10.080 --> 00:00:12.530 align:start position:0%
+threesome closest for this problem we're
+given<00:00:10.440><c> an</c><00:00:10.559><c> integer</c><00:00:10.980><c> array</c><00:00:11.340><c> nums</c><00:00:11.760><c> of</c><00:00:12.000><c> length</c><00:00:12.360><c> n</c>
+
+00:00:12.530 --> 00:00:12.540 align:start position:0%
+given an integer array nums of length n
+ 
+
+00:00:12.540 --> 00:00:14.810 align:start position:0%
+given an integer array nums of length n
+and<00:00:12.960><c> an</c><00:00:13.080><c> integer</c><00:00:13.440><c> Target</c><00:00:13.679><c> find</c><00:00:14.519><c> three</c>
+
+00:00:14.810 --> 00:00:14.820 align:start position:0%
+and an integer Target find three
+ 
+
+00:00:14.820 --> 00:00:17.810 align:start position:0%
+and an integer Target find three
+integers<00:00:15.360><c> in</c><00:00:15.660><c> the</c><00:00:15.839><c> nums</c><00:00:16.260><c> such</c><00:00:16.800><c> that</c><00:00:17.100><c> the</c><00:00:17.640><c> sum</c>
+
+00:00:17.810 --> 00:00:17.820 align:start position:0%
+integers in the nums such that the sum
+ 
+
+00:00:17.820 --> 00:00:20.450 align:start position:0%
+integers in the nums such that the sum
+is<00:00:18.180><c> closest</c><00:00:18.420><c> to</c><00:00:18.720><c> the</c><00:00:18.840><c> Target</c><00:00:19.020><c> return</c><00:00:19.980><c> the</c><00:00:20.279><c> sum</c>
+
+00:00:20.450 --> 00:00:20.460 align:start position:0%
+is closest to the Target return the sum
+ 
+
+00:00:20.460 --> 00:00:22.670 align:start position:0%
+is closest to the Target return the sum
+of<00:00:20.640><c> the</c><00:00:20.820><c> three</c><00:00:20.939><c> integers</c><00:00:21.480><c> you</c><00:00:22.080><c> may</c><00:00:22.260><c> assume</c>
+
+00:00:22.670 --> 00:00:22.680 align:start position:0%
+of the three integers you may assume
+ 
+
+00:00:22.680 --> 00:00:25.009 align:start position:0%
+of the three integers you may assume
+that<00:00:22.920><c> each</c><00:00:23.160><c> input</c><00:00:23.580><c> would</c><00:00:24.060><c> have</c><00:00:24.300><c> exactly</c><00:00:24.779><c> one</c>
+
+00:00:25.009 --> 00:00:25.019 align:start position:0%
+that each input would have exactly one
+ 
+
+00:00:25.019 --> 00:00:27.529 align:start position:0%
+that each input would have exactly one
+solution<00:00:25.439><c> for</c><00:00:26.340><c> example</c><00:00:26.580><c> one</c><00:00:26.880><c> we're</c><00:00:27.119><c> given</c><00:00:27.420><c> an</c>
+
+00:00:27.529 --> 00:00:27.539 align:start position:0%
+solution for example one we're given an
+ 
+
+00:00:27.539 --> 00:00:30.650 align:start position:0%
+solution for example one we're given an
+input<00:00:27.840><c> nums</c><00:00:28.320><c> array</c><00:00:28.619><c> of</c><00:00:28.800><c> negative</c><00:00:29.220><c> one</c><00:00:29.460><c> two</c><00:00:30.180><c> one</c>
+
+00:00:30.650 --> 00:00:30.660 align:start position:0%
+input nums array of negative one two one
+ 
+
+00:00:30.660 --> 00:00:32.690 align:start position:0%
+input nums array of negative one two one
+and<00:00:30.960><c> negative</c><00:00:31.320><c> four</c><00:00:31.500><c> with</c><00:00:31.980><c> our</c><00:00:32.099><c> Target</c><00:00:32.279><c> of</c><00:00:32.520><c> one</c>
+
+00:00:32.690 --> 00:00:32.700 align:start position:0%
+and negative four with our Target of one
+ 
+
+00:00:32.700 --> 00:00:35.290 align:start position:0%
+and negative four with our Target of one
+so<00:00:33.480><c> our</c><00:00:33.600><c> output</c><00:00:33.960><c> is</c><00:00:34.260><c> two</c>
+
+00:00:35.290 --> 00:00:35.300 align:start position:0%
+so our output is two
+ 
+
+00:00:35.300 --> 00:00:37.970 align:start position:0%
+so our output is two
+this<00:00:36.300><c> is</c><00:00:36.420><c> because</c><00:00:36.600><c> the</c><00:00:37.020><c> sum</c><00:00:37.260><c> that</c><00:00:37.680><c> is</c><00:00:37.800><c> the</c>
+
+00:00:37.970 --> 00:00:37.980 align:start position:0%
+this is because the sum that is the
+ 
+
+00:00:37.980 --> 00:00:39.770 align:start position:0%
+this is because the sum that is the
+closest<00:00:38.160><c> to</c><00:00:38.460><c> the</c><00:00:38.579><c> Target</c><00:00:38.760><c> is</c><00:00:39.180><c> negative</c><00:00:39.600><c> one</c>
+
+00:00:39.770 --> 00:00:39.780 align:start position:0%
+closest to the Target is negative one
+ 
+
+00:00:39.780 --> 00:00:42.590 align:start position:0%
+closest to the Target is negative one
+plus<00:00:40.079><c> two</c><00:00:40.500><c> plus</c><00:00:40.800><c> one</c><00:00:41.219><c> equals</c><00:00:41.760><c> two</c>
+
+00:00:42.590 --> 00:00:42.600 align:start position:0%
+plus two plus one equals two
+ 
+
+00:00:42.600 --> 00:00:44.330 align:start position:0%
+plus two plus one equals two
+for<00:00:42.960><c> example</c><00:00:43.200><c> two</c><00:00:43.440><c> we're</c><00:00:43.680><c> given</c><00:00:43.980><c> an</c><00:00:44.100><c> input</c>
+
+00:00:44.330 --> 00:00:44.340 align:start position:0%
+for example two we're given an input
+ 
+
+00:00:44.340 --> 00:00:46.430 align:start position:0%
+for example two we're given an input
+num's<00:00:44.760><c> array</c><00:00:44.940><c> of</c><00:00:45.059><c> zero</c><00:00:45.420><c> zero</c><00:00:45.780><c> zero</c><00:00:46.079><c> with</c><00:00:46.320><c> a</c>
+
+00:00:46.430 --> 00:00:46.440 align:start position:0%
+num's array of zero zero zero with a
+ 
+
+00:00:46.440 --> 00:00:49.430 align:start position:0%
+num's array of zero zero zero with a
+target<00:00:46.559><c> of</c><00:00:46.860><c> one</c><00:00:46.980><c> and</c><00:00:47.460><c> the</c><00:00:47.579><c> output</c><00:00:47.820><c> is</c><00:00:48.059><c> zero</c><00:00:48.480><c> and</c>
+
+00:00:49.430 --> 00:00:49.440 align:start position:0%
+target of one and the output is zero and
+ 
+
+00:00:49.440 --> 00:00:51.410 align:start position:0%
+target of one and the output is zero and
+this<00:00:49.620><c> is</c><00:00:49.680><c> because</c><00:00:49.860><c> the</c><00:00:50.160><c> closest</c><00:00:50.340><c> sum</c><00:00:50.820><c> to</c><00:00:51.300><c> the</c>
+
+00:00:51.410 --> 00:00:51.420 align:start position:0%
+this is because the closest sum to the
+ 
+
+00:00:51.420 --> 00:00:53.869 align:start position:0%
+this is because the closest sum to the
+Target<00:00:51.539><c> is</c><00:00:51.840><c> zero</c><00:00:52.200><c> which</c><00:00:52.680><c> is</c><00:00:52.860><c> our</c><00:00:53.280><c> zero</c><00:00:53.760><c> plus</c>
+
+00:00:53.869 --> 00:00:53.879 align:start position:0%
+Target is zero which is our zero plus
+ 
+
+00:00:53.879 --> 00:00:56.270 align:start position:0%
+Target is zero which is our zero plus
+zero<00:00:54.300><c> plus</c><00:00:54.360><c> zero</c><00:00:54.780><c> equals</c><00:00:55.199><c> zero</c>
+
+00:00:56.270 --> 00:00:56.280 align:start position:0%
+zero plus zero equals zero
+ 
+
+00:00:56.280 --> 00:00:58.189 align:start position:0%
+zero plus zero equals zero
+let's<00:00:56.520><c> go</c><00:00:56.699><c> through</c><00:00:56.879><c> an</c><00:00:57.000><c> example</c><00:00:57.360><c> for</c><00:00:58.079><c> this</c>
+
+00:00:58.189 --> 00:00:58.199 align:start position:0%
+let's go through an example for this
+ 
+
+00:00:58.199 --> 00:01:00.709 align:start position:0%
+let's go through an example for this
+example<00:00:58.559><c> we're</c><00:00:59.039><c> given</c><00:00:59.460><c> an</c><00:00:59.579><c> input</c><00:00:59.820><c> array</c><00:01:00.239><c> of</c>
+
+00:01:00.709 --> 00:01:00.719 align:start position:0%
+example we're given an input array of
+ 
+
+00:01:00.719 --> 00:01:04.070 align:start position:0%
+example we're given an input array of
+one<00:01:01.140><c> four</c><00:01:01.440><c> two</c><00:01:01.980><c> six</c><00:01:02.399><c> three</c><00:01:02.879><c> seven</c><00:01:03.180><c> and</c><00:01:03.899><c> a</c>
+
+00:01:04.070 --> 00:01:04.080 align:start position:0%
+one four two six three seven and a
+ 
+
+00:01:04.080 --> 00:01:05.990 align:start position:0%
+one four two six three seven and a
+target<00:01:04.199><c> of</c><00:01:04.500><c> seven</c><00:01:04.680><c> the</c><00:01:05.400><c> first</c><00:01:05.580><c> thing</c><00:01:05.760><c> we</c><00:01:05.880><c> can</c>
+
+00:01:05.990 --> 00:01:06.000 align:start position:0%
+target of seven the first thing we can
+ 
+
+00:01:06.000 --> 00:01:08.990 align:start position:0%
+target of seven the first thing we can
+do<00:01:06.180><c> is</c><00:01:06.600><c> sort</c><00:01:06.960><c> our</c><00:01:07.320><c> input</c><00:01:07.560><c> array</c><00:01:08.220><c> so</c><00:01:08.640><c> now</c><00:01:08.820><c> our</c>
+
+00:01:08.990 --> 00:01:09.000 align:start position:0%
+do is sort our input array so now our
+ 
+
+00:01:09.000 --> 00:01:11.149 align:start position:0%
+do is sort our input array so now our
+input<00:01:09.299><c> array</c><00:01:09.540><c> is</c><00:01:09.659><c> one</c><00:01:09.960><c> two</c><00:01:10.200><c> three</c><00:01:10.500><c> four</c><00:01:10.860><c> six</c>
+
+00:01:11.149 --> 00:01:11.159 align:start position:0%
+input array is one two three four six
+ 
+
+00:01:11.159 --> 00:01:13.130 align:start position:0%
+input array is one two three four six
+seven<00:01:11.400><c> the</c><00:01:12.119><c> next</c><00:01:12.299><c> thing</c><00:01:12.420><c> we're</c><00:01:12.600><c> going</c><00:01:12.720><c> to</c><00:01:12.780><c> do</c>
+
+00:01:13.130 --> 00:01:13.140 align:start position:0%
+seven the next thing we're going to do
+ 
+
+00:01:13.140 --> 00:01:15.649 align:start position:0%
+seven the next thing we're going to do
+is<00:01:13.500><c> Loop</c><00:01:14.280><c> through</c><00:01:14.460><c> our</c><00:01:14.640><c> input</c><00:01:14.880><c> array</c><00:01:15.240><c> and</c><00:01:15.540><c> keep</c>
+
+00:01:15.649 --> 00:01:15.659 align:start position:0%
+is Loop through our input array and keep
+ 
+
+00:01:15.659 --> 00:01:17.690 align:start position:0%
+is Loop through our input array and keep
+track<00:01:15.840><c> of</c><00:01:16.080><c> three</c><00:01:16.320><c> points</c><00:01:16.740><c> the</c><00:01:17.220><c> three</c><00:01:17.400><c> points</c>
+
+00:01:17.690 --> 00:01:17.700 align:start position:0%
+track of three points the three points
+ 
+
+00:01:17.700 --> 00:01:19.190 align:start position:0%
+track of three points the three points
+we<00:01:17.820><c> want</c><00:01:17.939><c> to</c><00:01:18.060><c> keep</c><00:01:18.119><c> track</c><00:01:18.299><c> of</c><00:01:18.479><c> is</c><00:01:18.840><c> our</c><00:01:19.020><c> current</c>
+
+00:01:19.190 --> 00:01:19.200 align:start position:0%
+we want to keep track of is our current
+ 
+
+00:01:19.200 --> 00:01:21.770 align:start position:0%
+we want to keep track of is our current
+index<00:01:19.619><c> our</c><00:01:20.280><c> left</c><00:01:20.520><c> point</c><00:01:20.820><c> and</c><00:01:21.180><c> our</c><00:01:21.360><c> right</c><00:01:21.540><c> point</c>
+
+00:01:21.770 --> 00:01:21.780 align:start position:0%
+index our left point and our right point
+ 
+
+00:01:21.780 --> 00:01:23.270 align:start position:0%
+index our left point and our right point
+and<00:01:22.200><c> for</c><00:01:22.380><c> each</c><00:01:22.500><c> index</c><00:01:22.799><c> we're</c><00:01:22.979><c> going</c><00:01:23.100><c> to</c><00:01:23.159><c> move</c>
+
+00:01:23.270 --> 00:01:23.280 align:start position:0%
+and for each index we're going to move
+ 
+
+00:01:23.280 --> 00:01:24.590 align:start position:0%
+and for each index we're going to move
+our<00:01:23.400><c> left</c><00:01:23.580><c> point</c><00:01:23.820><c> and</c><00:01:24.060><c> our</c><00:01:24.240><c> right</c><00:01:24.420><c> Point</c>
+
+00:01:24.590 --> 00:01:24.600 align:start position:0%
+our left point and our right Point
+ 
+
+00:01:24.600 --> 00:01:26.570 align:start position:0%
+our left point and our right Point
+towards<00:01:25.080><c> each</c><00:01:25.200><c> other</c><00:01:25.320><c> adding</c><00:01:25.979><c> up</c><00:01:26.159><c> the</c><00:01:26.400><c> three</c>
+
+00:01:26.570 --> 00:01:26.580 align:start position:0%
+towards each other adding up the three
+ 
+
+00:01:26.580 --> 00:01:29.390 align:start position:0%
+towards each other adding up the three
+points<00:01:27.000><c> to</c><00:01:27.240><c> get</c><00:01:27.420><c> the</c><00:01:27.659><c> sum</c><00:01:27.840><c> and</c><00:01:28.740><c> keeping</c><00:01:29.220><c> track</c>
+
+00:01:29.390 --> 00:01:29.400 align:start position:0%
+points to get the sum and keeping track
+ 
+
+00:01:29.400 --> 00:01:32.030 align:start position:0%
+points to get the sum and keeping track
+of<00:01:29.700><c> which</c><00:01:30.060><c> sum</c><00:01:30.479><c> is</c><00:01:30.960><c> closest</c><00:01:31.259><c> to</c><00:01:31.680><c> our</c><00:01:31.860><c> Target</c>
+
+00:01:32.030 --> 00:01:32.040 align:start position:0%
+of which sum is closest to our Target
+ 
+
+00:01:32.040 --> 00:01:34.370 align:start position:0%
+of which sum is closest to our Target
+value<00:01:32.400><c> so</c><00:01:33.240><c> for</c><00:01:33.479><c> this</c><00:01:33.600><c> first</c><00:01:33.780><c> one</c><00:01:33.960><c> we're</c><00:01:34.259><c> going</c>
+
+00:01:34.370 --> 00:01:34.380 align:start position:0%
+value so for this first one we're going
+ 
+
+00:01:34.380 --> 00:01:36.770 align:start position:0%
+value so for this first one we're going
+to<00:01:34.500><c> have</c><00:01:34.619><c> our</c><00:01:34.740><c> index</c><00:01:35.040><c> of</c><00:01:35.220><c> one</c><00:01:35.460><c> and</c><00:01:36.360><c> our</c><00:01:36.600><c> left</c>
+
+00:01:36.770 --> 00:01:36.780 align:start position:0%
+to have our index of one and our left
+ 
+
+00:01:36.780 --> 00:01:38.630 align:start position:0%
+to have our index of one and our left
+point<00:01:37.020><c> of</c><00:01:37.200><c> two</c><00:01:37.380><c> and</c><00:01:37.979><c> our</c><00:01:38.100><c> right</c><00:01:38.280><c> point</c><00:01:38.460><c> of</c>
+
+00:01:38.630 --> 00:01:38.640 align:start position:0%
+point of two and our right point of
+ 
+
+00:01:38.640 --> 00:01:41.450 align:start position:0%
+point of two and our right point of
+seven<00:01:38.880><c> so</c><00:01:39.600><c> we</c><00:01:39.720><c> want</c><00:01:39.840><c> to</c><00:01:39.960><c> add</c><00:01:40.079><c> those</c><00:01:40.259><c> up</c><00:01:40.500><c> so</c><00:01:41.220><c> one</c>
+
+00:01:41.450 --> 00:01:41.460 align:start position:0%
+seven so we want to add those up so one
+ 
+
+00:01:41.460 --> 00:01:44.149 align:start position:0%
+seven so we want to add those up so one
+plus<00:01:41.640><c> two</c><00:01:41.939><c> plus</c><00:01:42.180><c> seven</c><00:01:42.479><c> is</c><00:01:42.900><c> ten</c><00:01:43.259><c> so</c><00:01:43.799><c> we'll</c><00:01:43.979><c> keep</c>
+
+00:01:44.149 --> 00:01:44.159 align:start position:0%
+plus two plus seven is ten so we'll keep
+ 
+
+00:01:44.159 --> 00:01:47.149 align:start position:0%
+plus two plus seven is ten so we'll keep
+track<00:01:44.340><c> of</c><00:01:44.579><c> this</c><00:01:44.880><c> total</c><00:01:45.659><c> as</c><00:01:46.200><c> our</c><00:01:46.500><c> closest</c><00:01:46.680><c> sum</c>
+
+00:01:47.149 --> 00:01:47.159 align:start position:0%
+track of this total as our closest sum
+ 
+
+00:01:47.159 --> 00:01:49.249 align:start position:0%
+track of this total as our closest sum
+because<00:01:47.520><c> currently</c><00:01:47.939><c> it's</c><00:01:48.119><c> our</c><00:01:48.420><c> closest</c><00:01:48.600><c> sum</c>
+
+00:01:49.249 --> 00:01:49.259 align:start position:0%
+because currently it's our closest sum
+ 
+
+00:01:49.259 --> 00:01:51.649 align:start position:0%
+because currently it's our closest sum
+to<00:01:49.799><c> our</c><00:01:49.920><c> Target</c><00:01:50.100><c> value</c><00:01:50.399><c> of</c><00:01:50.579><c> seven</c><00:01:50.820><c> and</c><00:01:51.479><c> since</c>
+
+00:01:51.649 --> 00:01:51.659 align:start position:0%
+to our Target value of seven and since
+ 
+
+00:01:51.659 --> 00:01:53.210 align:start position:0%
+to our Target value of seven and since
+our<00:01:51.899><c> total</c><00:01:52.200><c> is</c><00:01:52.439><c> greater</c><00:01:52.740><c> than</c><00:01:52.860><c> our</c><00:01:53.100><c> Target</c>
+
+00:01:53.210 --> 00:01:53.220 align:start position:0%
+our total is greater than our Target
+ 
+
+00:01:53.220 --> 00:01:54.649 align:start position:0%
+our total is greater than our Target
+we're<00:01:53.640><c> going</c><00:01:53.820><c> to</c><00:01:53.880><c> want</c><00:01:54.000><c> to</c><00:01:54.060><c> move</c><00:01:54.180><c> our</c><00:01:54.420><c> right</c>
+
+00:01:54.649 --> 00:01:54.659 align:start position:0%
+we're going to want to move our right
+ 
+
+00:01:54.659 --> 00:01:57.469 align:start position:0%
+we're going to want to move our right
+point<00:01:54.960><c> to</c><00:01:55.860><c> the</c><00:01:55.979><c> left</c><00:01:56.100><c> and</c><00:01:56.820><c> this</c><00:01:56.939><c> is</c><00:01:57.000><c> because</c><00:01:57.180><c> we</c>
+
+00:01:57.469 --> 00:01:57.479 align:start position:0%
+point to the left and this is because we
+ 
+
+00:01:57.479 --> 00:02:00.350 align:start position:0%
+point to the left and this is because we
+want<00:01:57.600><c> to</c><00:01:57.780><c> decrease</c><00:01:58.079><c> our</c><00:01:58.860><c> total</c><00:01:59.220><c> and</c><00:02:00.000><c> moving</c>
+
+00:02:00.350 --> 00:02:00.360 align:start position:0%
+want to decrease our total and moving
+ 
+
+00:02:00.360 --> 00:02:02.090 align:start position:0%
+want to decrease our total and moving
+our<00:02:00.540><c> right</c><00:02:00.720><c> point</c><00:02:00.899><c> to</c><00:02:01.140><c> the</c><00:02:01.259><c> left</c><00:02:01.380><c> we'll</c><00:02:01.680><c> get</c><00:02:01.860><c> a</c>
+
+00:02:02.090 --> 00:02:02.100 align:start position:0%
+our right point to the left we'll get a
+ 
+
+00:02:02.100 --> 00:02:04.249 align:start position:0%
+our right point to the left we'll get a
+smaller<00:02:02.460><c> number</c><00:02:02.640><c> so</c><00:02:03.240><c> now</c><00:02:03.420><c> our</c><00:02:03.600><c> index</c><00:02:03.899><c> is</c><00:02:04.020><c> one</c>
+
+00:02:04.249 --> 00:02:04.259 align:start position:0%
+smaller number so now our index is one
+ 
+
+00:02:04.259 --> 00:02:06.109 align:start position:0%
+smaller number so now our index is one
+our<00:02:04.619><c> left</c><00:02:04.799><c> point</c><00:02:04.979><c> is</c><00:02:05.219><c> two</c><00:02:05.399><c> and</c><00:02:05.759><c> our</c><00:02:05.939><c> right</c>
+
+00:02:06.109 --> 00:02:06.119 align:start position:0%
+our left point is two and our right
+ 
+
+00:02:06.119 --> 00:02:08.210 align:start position:0%
+our left point is two and our right
+point<00:02:06.299><c> is</c><00:02:06.479><c> six</c><00:02:06.659><c> so</c><00:02:07.200><c> our</c><00:02:07.380><c> total</c><00:02:07.680><c> is</c><00:02:07.740><c> now</c><00:02:07.920><c> nine</c>
+
+00:02:08.210 --> 00:02:08.220 align:start position:0%
+point is six so our total is now nine
+ 
+
+00:02:08.220 --> 00:02:10.550 align:start position:0%
+point is six so our total is now nine
+and<00:02:09.000><c> we</c><00:02:09.179><c> want</c><00:02:09.300><c> to</c><00:02:09.420><c> compare</c><00:02:09.780><c> this</c><00:02:09.959><c> against</c><00:02:10.200><c> our</c>
+
+00:02:10.550 --> 00:02:10.560 align:start position:0%
+and we want to compare this against our
+ 
+
+00:02:10.560 --> 00:02:12.770 align:start position:0%
+and we want to compare this against our
+closest<00:02:10.800><c> sum</c><00:02:11.160><c> to</c><00:02:11.459><c> see</c><00:02:11.580><c> which</c><00:02:11.879><c> is</c><00:02:12.180><c> closest</c><00:02:12.480><c> to</c>
+
+00:02:12.770 --> 00:02:12.780 align:start position:0%
+closest sum to see which is closest to
+ 
+
+00:02:12.780 --> 00:02:14.930 align:start position:0%
+closest sum to see which is closest to
+our<00:02:12.959><c> Target</c><00:02:13.140><c> and</c><00:02:13.980><c> we</c><00:02:14.099><c> can</c><00:02:14.220><c> do</c><00:02:14.340><c> that</c><00:02:14.459><c> by</c><00:02:14.640><c> using</c>
+
+00:02:14.930 --> 00:02:14.940 align:start position:0%
+our Target and we can do that by using
+ 
+
+00:02:14.940 --> 00:02:17.630 align:start position:0%
+our Target and we can do that by using
+this<00:02:15.300><c> formula</c><00:02:16.020><c> if</c><00:02:16.560><c> the</c><00:02:16.800><c> absolute</c><00:02:17.220><c> value</c><00:02:17.459><c> of</c>
+
+00:02:17.630 --> 00:02:17.640 align:start position:0%
+this formula if the absolute value of
+ 
+
+00:02:17.640 --> 00:02:19.850 align:start position:0%
+this formula if the absolute value of
+our<00:02:17.760><c> total</c><00:02:18.120><c> minus</c><00:02:18.480><c> our</c><00:02:18.599><c> Target</c><00:02:18.840><c> is</c><00:02:19.379><c> less</c><00:02:19.680><c> than</c>
+
+00:02:19.850 --> 00:02:19.860 align:start position:0%
+our total minus our Target is less than
+ 
+
+00:02:19.860 --> 00:02:22.190 align:start position:0%
+our total minus our Target is less than
+the<00:02:20.280><c> absolute</c><00:02:20.640><c> value</c><00:02:20.879><c> of</c><00:02:21.360><c> our</c><00:02:21.540><c> closest</c><00:02:21.720><c> sum</c>
+
+00:02:22.190 --> 00:02:22.200 align:start position:0%
+the absolute value of our closest sum
+ 
+
+00:02:22.200 --> 00:02:24.710 align:start position:0%
+the absolute value of our closest sum
+minus<00:02:22.800><c> our</c><00:02:22.980><c> Target</c><00:02:23.220><c> then</c><00:02:23.879><c> we</c><00:02:24.060><c> want</c><00:02:24.239><c> to</c><00:02:24.360><c> swap</c>
+
+00:02:24.710 --> 00:02:24.720 align:start position:0%
+minus our Target then we want to swap
+ 
+
+00:02:24.720 --> 00:02:28.190 align:start position:0%
+minus our Target then we want to swap
+our<00:02:25.440><c> closest</c><00:02:25.739><c> sum</c><00:02:26.220><c> with</c><00:02:26.640><c> our</c><00:02:26.879><c> new</c><00:02:27.180><c> Total</c><00:02:27.599><c> so</c><00:02:28.080><c> in</c>
+
+00:02:28.190 --> 00:02:28.200 align:start position:0%
+our closest sum with our new Total so in
+ 
+
+00:02:28.200 --> 00:02:31.070 align:start position:0%
+our closest sum with our new Total so in
+this<00:02:28.379><c> case</c><00:02:28.500><c> we</c><00:02:28.920><c> have</c><00:02:28.980><c> nine</c><00:02:29.280><c> minus</c><00:02:29.700><c> seven</c><00:02:30.080><c> and</c>
+
+00:02:31.070 --> 00:02:31.080 align:start position:0%
+this case we have nine minus seven and
+ 
+
+00:02:31.080 --> 00:02:34.970 align:start position:0%
+this case we have nine minus seven and
+ten<00:02:31.440><c> minus</c><00:02:31.739><c> 7</c><00:02:31.920><c> which</c><00:02:32.520><c> is</c><00:02:32.700><c> two</c><00:02:33.540><c> and</c><00:02:34.140><c> three</c>
+
+00:02:34.970 --> 00:02:34.980 align:start position:0%
+ten minus 7 which is two and three
+ 
+
+00:02:34.980 --> 00:02:37.130 align:start position:0%
+ten minus 7 which is two and three
+so<00:02:35.400><c> since</c><00:02:35.580><c> 2</c><00:02:35.819><c> is</c><00:02:36.000><c> less</c><00:02:36.180><c> than</c><00:02:36.300><c> 3</c><00:02:36.480><c> we</c><00:02:36.780><c> want</c><00:02:36.959><c> to</c>
+
+00:02:37.130 --> 00:02:37.140 align:start position:0%
+so since 2 is less than 3 we want to
+ 
+
+00:02:37.140 --> 00:02:38.930 align:start position:0%
+so since 2 is less than 3 we want to
+swap<00:02:37.440><c> our</c><00:02:37.920><c> closest</c><00:02:38.099><c> sum</c><00:02:38.459><c> with</c><00:02:38.640><c> our</c><00:02:38.819><c> current</c>
+
+00:02:38.930 --> 00:02:38.940 align:start position:0%
+swap our closest sum with our current
+ 
+
+00:02:38.940 --> 00:02:40.850 align:start position:0%
+swap our closest sum with our current
+total<00:02:39.360><c> and</c><00:02:39.840><c> since</c><00:02:40.020><c> our</c><00:02:40.200><c> total</c><00:02:40.500><c> is</c><00:02:40.680><c> still</c>
+
+00:02:40.850 --> 00:02:40.860 align:start position:0%
+total and since our total is still
+ 
+
+00:02:40.860 --> 00:02:41.990 align:start position:0%
+total and since our total is still
+greater<00:02:41.160><c> than</c><00:02:41.160><c> our</c><00:02:41.400><c> Target</c><00:02:41.580><c> we're</c><00:02:41.819><c> going</c><00:02:41.940><c> to</c>
+
+00:02:41.990 --> 00:02:42.000 align:start position:0%
+greater than our Target we're going to
+ 
+
+00:02:42.000 --> 00:02:43.729 align:start position:0%
+greater than our Target we're going to
+move<00:02:42.120><c> our</c><00:02:42.360><c> right</c><00:02:42.599><c> point</c><00:02:42.840><c> to</c><00:02:43.200><c> the</c><00:02:43.379><c> left</c><00:02:43.500><c> again</c>
+
+00:02:43.729 --> 00:02:43.739 align:start position:0%
+move our right point to the left again
+ 
+
+00:02:43.739 --> 00:02:46.190 align:start position:0%
+move our right point to the left again
+now<00:02:44.400><c> our</c><00:02:44.580><c> index</c><00:02:44.879><c> is</c><00:02:45.060><c> one</c><00:02:45.239><c> our</c><00:02:45.540><c> left</c><00:02:45.720><c> point</c><00:02:45.900><c> is</c><00:02:46.019><c> 2</c>
+
+00:02:46.190 --> 00:02:46.200 align:start position:0%
+now our index is one our left point is 2
+ 
+
+00:02:46.200 --> 00:02:48.050 align:start position:0%
+now our index is one our left point is 2
+and<00:02:46.379><c> our</c><00:02:46.500><c> right</c><00:02:46.680><c> point</c><00:02:46.860><c> is</c><00:02:47.040><c> four</c><00:02:47.220><c> adding</c><00:02:47.940><c> those</c>
+
+00:02:48.050 --> 00:02:48.060 align:start position:0%
+and our right point is four adding those
+ 
+
+00:02:48.060 --> 00:02:50.150 align:start position:0%
+and our right point is four adding those
+up<00:02:48.239><c> our</c><00:02:48.599><c> total</c><00:02:48.840><c> is</c><00:02:49.019><c> seven</c><00:02:49.200><c> this</c><00:02:49.620><c> is</c><00:02:49.739><c> equal</c><00:02:49.920><c> to</c>
+
+00:02:50.150 --> 00:02:50.160 align:start position:0%
+up our total is seven this is equal to
+ 
+
+00:02:50.160 --> 00:02:52.070 align:start position:0%
+up our total is seven this is equal to
+our<00:02:50.340><c> Target</c><00:02:50.519><c> in</c><00:02:51.060><c> our</c><00:02:51.239><c> solution</c><00:02:51.420><c> we</c><00:02:51.660><c> can</c><00:02:51.780><c> add</c><00:02:51.900><c> a</c>
+
+00:02:52.070 --> 00:02:52.080 align:start position:0%
+our Target in our solution we can add a
+ 
+
+00:02:52.080 --> 00:02:54.110 align:start position:0%
+our Target in our solution we can add a
+check<00:02:52.260><c> to</c><00:02:52.680><c> see</c><00:02:52.920><c> if</c><00:02:53.099><c> our</c><00:02:53.280><c> Target</c><00:02:53.459><c> is</c><00:02:53.760><c> equal</c><00:02:53.940><c> to</c>
+
+00:02:54.110 --> 00:02:54.120 align:start position:0%
+check to see if our Target is equal to
+ 
+
+00:02:54.120 --> 00:02:56.390 align:start position:0%
+check to see if our Target is equal to
+our<00:02:54.300><c> total</c><00:02:54.599><c> to</c><00:02:55.080><c> just</c><00:02:55.260><c> return</c><00:02:55.500><c> the</c><00:02:55.860><c> total</c><00:02:56.220><c> value</c>
+
+00:02:56.390 --> 00:02:56.400 align:start position:0%
+our total to just return the total value
+ 
+
+00:02:56.400 --> 00:02:57.830 align:start position:0%
+our total to just return the total value
+and<00:02:56.700><c> this</c><00:02:56.879><c> is</c><00:02:57.000><c> because</c><00:02:57.180><c> in</c><00:02:57.599><c> the</c><00:02:57.720><c> problem</c>
+
+00:02:57.830 --> 00:02:57.840 align:start position:0%
+and this is because in the problem
+ 
+
+00:02:57.840 --> 00:03:00.350 align:start position:0%
+and this is because in the problem
+statement<00:02:58.379><c> it</c><00:02:58.980><c> mentions</c><00:02:59.400><c> that</c><00:02:59.819><c> we</c><00:03:00.000><c> can</c><00:03:00.060><c> assume</c>
+
+00:03:00.350 --> 00:03:00.360 align:start position:0%
+statement it mentions that we can assume
+ 
+
+00:03:00.360 --> 00:03:02.990 align:start position:0%
+statement it mentions that we can assume
+that<00:03:00.480><c> there's</c><00:03:00.660><c> only</c><00:03:00.840><c> one</c><00:03:01.200><c> solution</c><00:03:01.620><c> per</c><00:03:02.580><c> input</c>
+
+00:03:02.990 --> 00:03:03.000 align:start position:0%
+that there's only one solution per input
+ 
+
+00:03:03.000 --> 00:03:05.630 align:start position:0%
+that there's only one solution per input
+array<00:03:03.300><c> so</c><00:03:03.900><c> in</c><00:03:04.019><c> this</c><00:03:04.200><c> case</c><00:03:04.260><c> our</c><00:03:04.500><c> closest</c><00:03:04.739><c> sum</c><00:03:05.160><c> is</c>
+
+00:03:05.630 --> 00:03:05.640 align:start position:0%
+array so in this case our closest sum is
+ 
+
+00:03:05.640 --> 00:03:08.089 align:start position:0%
+array so in this case our closest sum is
+seven<00:03:05.879><c> let's</c><00:03:06.660><c> jump</c><00:03:06.840><c> into</c><00:03:07.019><c> the</c><00:03:07.260><c> code</c><00:03:07.440><c> first</c>
+
+00:03:08.089 --> 00:03:08.099 align:start position:0%
+seven let's jump into the code first
+ 
+
+00:03:08.099 --> 00:03:10.850 align:start position:0%
+seven let's jump into the code first
+thing<00:03:08.280><c> we</c><00:03:08.400><c> want</c><00:03:08.519><c> to</c><00:03:08.640><c> do</c><00:03:08.760><c> is</c><00:03:09.239><c> sort</c><00:03:09.720><c> our</c><00:03:10.260><c> nums</c>
+
+00:03:10.850 --> 00:03:10.860 align:start position:0%
+thing we want to do is sort our nums
+ 
+
+00:03:10.860 --> 00:03:12.050 align:start position:0%
+thing we want to do is sort our nums
+array
+
+00:03:12.050 --> 00:03:12.060 align:start position:0%
+array
+ 
+
+00:03:12.060 --> 00:03:14.330 align:start position:0%
+array
+next<00:03:12.420><c> we</c><00:03:12.659><c> want</c><00:03:12.780><c> to</c><00:03:12.959><c> Define</c><00:03:13.080><c> our</c><00:03:13.620><c> closest</c><00:03:13.920><c> sum</c>
+
+00:03:14.330 --> 00:03:14.340 align:start position:0%
+next we want to Define our closest sum
+ 
+
+00:03:14.340 --> 00:03:16.670 align:start position:0%
+next we want to Define our closest sum
+variable<00:03:14.760><c> and</c><00:03:15.239><c> we</c><00:03:15.420><c> can</c><00:03:15.540><c> set</c><00:03:15.720><c> this</c><00:03:16.019><c> to</c><00:03:16.319><c> Infinity</c>
+
+00:03:16.670 --> 00:03:16.680 align:start position:0%
+variable and we can set this to Infinity
+ 
+
+00:03:16.680 --> 00:03:18.830 align:start position:0%
+variable and we can set this to Infinity
+at<00:03:17.340><c> first</c><00:03:17.519><c> so</c><00:03:17.819><c> that</c><00:03:18.000><c> when</c><00:03:18.120><c> we</c><00:03:18.300><c> do</c><00:03:18.420><c> our</c><00:03:18.659><c> first</c>
+
+00:03:18.830 --> 00:03:18.840 align:start position:0%
+at first so that when we do our first
+ 
+
+00:03:18.840 --> 00:03:22.430 align:start position:0%
+at first so that when we do our first
+check<00:03:19.200><c> against</c><00:03:19.980><c> our</c><00:03:20.580><c> total</c><00:03:21.120><c> sum</c><00:03:21.659><c> it'll</c><00:03:22.260><c> just</c>
+
+00:03:22.430 --> 00:03:22.440 align:start position:0%
+check against our total sum it'll just
+ 
+
+00:03:22.440 --> 00:03:26.809 align:start position:0%
+check against our total sum it'll just
+always<00:03:22.680><c> add</c><00:03:23.099><c> it</c><00:03:23.280><c> into</c><00:03:23.459><c> this</c><00:03:23.819><c> variable</c>
+
+00:03:26.809 --> 00:03:26.819 align:start position:0%
+ 
+ 
+
+00:03:26.819 --> 00:03:28.250 align:start position:0%
+ 
+next<00:03:27.239><c> we</c><00:03:27.420><c> can</c><00:03:27.540><c> Loop</c><00:03:27.780><c> through</c><00:03:27.959><c> our</c><00:03:28.140><c> numbers</c>
+
+00:03:28.250 --> 00:03:28.260 align:start position:0%
+next we can Loop through our numbers
+ 
+
+00:03:28.260 --> 00:03:31.430 align:start position:0%
+next we can Loop through our numbers
+array<00:03:28.620><c> and</c><00:03:28.860><c> we</c><00:03:29.040><c> only</c><00:03:29.220><c> want</c><00:03:29.519><c> to</c><00:03:29.760><c> Loop</c><00:03:30.420><c> through</c>
+
+00:03:31.430 --> 00:03:31.440 align:start position:0%
+array and we only want to Loop through
+ 
+
+00:03:31.440 --> 00:03:34.970 align:start position:0%
+array and we only want to Loop through
+for<00:03:31.980><c> the</c><00:03:32.580><c> length</c><00:03:33.300><c> of</c><00:03:33.480><c> our</c><00:03:33.599><c> nums</c><00:03:34.019><c> array</c><00:03:34.319><c> minus</c>
+
+00:03:34.970 --> 00:03:34.980 align:start position:0%
+for the length of our nums array minus
+ 
+
+00:03:34.980 --> 00:03:36.589 align:start position:0%
+for the length of our nums array minus
+two<00:03:35.159><c> since</c><00:03:35.700><c> we'll</c><00:03:35.879><c> have</c><00:03:36.000><c> our</c><00:03:36.120><c> left</c><00:03:36.239><c> and</c><00:03:36.420><c> right</c>
+
+00:03:36.589 --> 00:03:36.599 align:start position:0%
+two since we'll have our left and right
+ 
+
+00:03:36.599 --> 00:03:38.330 align:start position:0%
+two since we'll have our left and right
+points<00:03:37.019><c> we</c><00:03:37.140><c> never</c><00:03:37.319><c> need</c><00:03:37.500><c> to</c><00:03:37.620><c> go</c><00:03:37.739><c> to</c><00:03:37.920><c> the</c><00:03:38.040><c> end</c><00:03:38.159><c> of</c>
+
+00:03:38.330 --> 00:03:38.340 align:start position:0%
+points we never need to go to the end of
+ 
+
+00:03:38.340 --> 00:03:42.170 align:start position:0%
+points we never need to go to the end of
+our<00:03:38.400><c> numbers</c><00:03:38.580><c> array</c>
+
+00:03:42.170 --> 00:03:42.180 align:start position:0%
+ 
+ 
+
+00:03:42.180 --> 00:03:44.390 align:start position:0%
+ 
+now<00:03:42.780><c> we'll</c><00:03:42.959><c> get</c><00:03:43.140><c> our</c><00:03:43.379><c> left</c><00:03:43.500><c> and</c><00:03:43.739><c> right</c><00:03:43.920><c> points</c>
+
+00:03:44.390 --> 00:03:44.400 align:start position:0%
+now we'll get our left and right points
+ 
+
+00:03:44.400 --> 00:03:47.030 align:start position:0%
+now we'll get our left and right points
+to<00:03:44.700><c> start</c><00:03:44.879><c> out</c><00:03:45.060><c> our</c><00:03:45.480><c> left</c><00:03:45.659><c> point</c><00:03:45.900><c> will</c><00:03:46.260><c> be</c><00:03:46.500><c> our</c>
+
+00:03:47.030 --> 00:03:47.040 align:start position:0%
+to start out our left point will be our
+ 
+
+00:03:47.040 --> 00:03:49.190 align:start position:0%
+to start out our left point will be our
+current<00:03:47.280><c> index</c><00:03:47.760><c> plus</c><00:03:48.000><c> one</c><00:03:48.360><c> and</c><00:03:48.720><c> our</c><00:03:48.959><c> right</c>
+
+00:03:49.190 --> 00:03:49.200 align:start position:0%
+current index plus one and our right
+ 
+
+00:03:49.200 --> 00:03:50.990 align:start position:0%
+current index plus one and our right
+point<00:03:49.440><c> will</c><00:03:49.680><c> be</c><00:03:49.860><c> the</c><00:03:50.099><c> length</c><00:03:50.400><c> of</c><00:03:50.580><c> our</c><00:03:50.700><c> nums</c>
+
+00:03:50.990 --> 00:03:51.000 align:start position:0%
+point will be the length of our nums
+ 
+
+00:03:51.000 --> 00:03:55.430 align:start position:0%
+point will be the length of our nums
+array<00:03:51.299><c> minus</c><00:03:51.720><c> one</c>
+
+00:03:55.430 --> 00:03:55.440 align:start position:0%
+ 
+ 
+
+00:03:55.440 --> 00:03:57.770 align:start position:0%
+ 
+the<00:03:55.920><c> reason</c><00:03:56.040><c> our</c><00:03:56.280><c> right</c><00:03:56.459><c> point</c><00:03:56.760><c> is</c><00:03:57.120><c> the</c><00:03:57.420><c> length</c>
+
+00:03:57.770 --> 00:03:57.780 align:start position:0%
+the reason our right point is the length
+ 
+
+00:03:57.780 --> 00:03:59.809 align:start position:0%
+the reason our right point is the length
+of<00:03:57.959><c> our</c><00:03:58.019><c> num's</c><00:03:58.440><c> array</c><00:03:58.680><c> minus</c><00:03:59.099><c> one</c><00:03:59.280><c> is</c><00:03:59.640><c> because</c>
+
+00:03:59.809 --> 00:03:59.819 align:start position:0%
+of our num's array minus one is because
+ 
+
+00:03:59.819 --> 00:04:03.110 align:start position:0%
+of our num's array minus one is because
+arrays<00:04:00.599><c> indexes</c><00:04:01.379><c> start</c><00:04:01.799><c> at</c><00:04:02.040><c> zero</c><00:04:02.519><c> now</c><00:04:03.000><c> we're</c>
+
+00:04:03.110 --> 00:04:03.120 align:start position:0%
+arrays indexes start at zero now we're
+ 
+
+00:04:03.120 --> 00:04:04.550 align:start position:0%
+arrays indexes start at zero now we're
+going<00:04:03.239><c> to</c><00:04:03.299><c> use</c><00:04:03.420><c> a</c><00:04:03.540><c> while</c><00:04:03.659><c> loop</c><00:04:04.019><c> so</c><00:04:04.140><c> that</c><00:04:04.260><c> we</c><00:04:04.440><c> can</c>
+
+00:04:04.550 --> 00:04:04.560 align:start position:0%
+going to use a while loop so that we can
+ 
+
+00:04:04.560 --> 00:04:07.070 align:start position:0%
+going to use a while loop so that we can
+check<00:04:04.799><c> every</c><00:04:05.280><c> left</c><00:04:05.519><c> and</c><00:04:05.760><c> right</c><00:04:05.940><c> point</c><00:04:06.239><c> of</c><00:04:06.900><c> this</c>
+
+00:04:07.070 --> 00:04:07.080 align:start position:0%
+check every left and right point of this
+ 
+
+00:04:07.080 --> 00:04:09.530 align:start position:0%
+check every left and right point of this
+given<00:04:07.440><c> index</c><00:04:07.739><c> and</c><00:04:08.340><c> we'll</c><00:04:08.519><c> Loop</c><00:04:08.879><c> while</c><00:04:09.239><c> our</c>
+
+00:04:09.530 --> 00:04:09.540 align:start position:0%
+given index and we'll Loop while our
+ 
+
+00:04:09.540 --> 00:04:14.330 align:start position:0%
+given index and we'll Loop while our
+left<00:04:09.720><c> point</c><00:04:09.959><c> is</c><00:04:10.260><c> less</c><00:04:10.500><c> than</c><00:04:10.620><c> our</c><00:04:10.860><c> right</c><00:04:11.040><c> point</c>
+
+00:04:14.330 --> 00:04:14.340 align:start position:0%
+ 
+ 
+
+00:04:14.340 --> 00:04:15.830 align:start position:0%
+ 
+and<00:04:14.700><c> the</c><00:04:14.819><c> first</c><00:04:14.939><c> thing</c><00:04:15.060><c> we'll</c><00:04:15.180><c> do</c><00:04:15.420><c> is</c>
+
+00:04:15.830 --> 00:04:15.840 align:start position:0%
+and the first thing we'll do is
+ 
+
+00:04:15.840 --> 00:04:18.229 align:start position:0%
+and the first thing we'll do is
+calculate<00:04:16.380><c> our</c><00:04:16.500><c> total</c><00:04:16.799><c> and</c><00:04:17.340><c> our</c><00:04:17.519><c> total</c><00:04:17.820><c> equals</c>
+
+00:04:18.229 --> 00:04:18.239 align:start position:0%
+calculate our total and our total equals
+ 
+
+00:04:18.239 --> 00:04:21.830 align:start position:0%
+calculate our total and our total equals
+the<00:04:18.660><c> value</c><00:04:19.100><c> at</c><00:04:20.100><c> our</c><00:04:20.579><c> index</c><00:04:20.940><c> the</c><00:04:21.299><c> value</c><00:04:21.479><c> at</c><00:04:21.720><c> our</c>
+
+00:04:21.830 --> 00:04:21.840 align:start position:0%
+the value at our index the value at our
+ 
+
+00:04:21.840 --> 00:04:23.330 align:start position:0%
+the value at our index the value at our
+left<00:04:22.019><c> point</c><00:04:22.260><c> and</c><00:04:22.560><c> the</c><00:04:22.680><c> value</c><00:04:22.800><c> at</c><00:04:22.979><c> our</c><00:04:23.160><c> right</c>
+
+00:04:23.330 --> 00:04:23.340 align:start position:0%
+left point and the value at our right
+ 
+
+00:04:23.340 --> 00:04:28.129 align:start position:0%
+left point and the value at our right
+point
+
+00:04:28.129 --> 00:04:28.139 align:start position:0%
+ 
+ 
+
+00:04:28.139 --> 00:04:29.870 align:start position:0%
+ 
+and<00:04:28.500><c> right</c><00:04:28.680><c> after</c><00:04:28.860><c> we</c><00:04:29.100><c> calculate</c><00:04:29.460><c> our</c><00:04:29.580><c> total</c>
+
+00:04:29.870 --> 00:04:29.880 align:start position:0%
+and right after we calculate our total
+ 
+
+00:04:29.880 --> 00:04:31.969 align:start position:0%
+and right after we calculate our total
+we<00:04:30.240><c> can</c><00:04:30.360><c> add</c><00:04:30.540><c> the</c><00:04:30.720><c> check</c><00:04:30.900><c> to</c><00:04:31.259><c> see</c><00:04:31.380><c> if</c><00:04:31.500><c> our</c><00:04:31.620><c> total</c>
+
+00:04:31.969 --> 00:04:31.979 align:start position:0%
+we can add the check to see if our total
+ 
+
+00:04:31.979 --> 00:04:35.210 align:start position:0%
+we can add the check to see if our total
+is<00:04:32.940><c> equal</c><00:04:33.240><c> to</c><00:04:33.600><c> our</c><00:04:33.960><c> Target</c><00:04:34.139><c> value</c><00:04:34.500><c> and</c><00:04:34.860><c> if</c><00:04:35.040><c> it</c>
+
+00:04:35.210 --> 00:04:35.220 align:start position:0%
+is equal to our Target value and if it
+ 
+
+00:04:35.220 --> 00:04:39.530 align:start position:0%
+is equal to our Target value and if it
+is<00:04:35.340><c> we</c><00:04:35.639><c> can</c><00:04:35.820><c> just</c><00:04:35.940><c> return</c><00:04:36.180><c> that</c><00:04:36.540><c> total</c><00:04:36.960><c> value</c>
+
+00:04:39.530 --> 00:04:39.540 align:start position:0%
+ 
+ 
+
+00:04:39.540 --> 00:04:41.749 align:start position:0%
+ 
+and<00:04:40.020><c> if</c><00:04:40.199><c> our</c><00:04:40.380><c> total</c><00:04:40.620><c> value</c><00:04:40.800><c> is</c><00:04:41.100><c> not</c><00:04:41.280><c> equal</c><00:04:41.520><c> to</c>
+
+00:04:41.749 --> 00:04:41.759 align:start position:0%
+and if our total value is not equal to
+ 
+
+00:04:41.759 --> 00:04:43.189 align:start position:0%
+and if our total value is not equal to
+our<00:04:41.940><c> Target</c><00:04:42.120><c> we're</c><00:04:42.540><c> going</c><00:04:42.660><c> to</c><00:04:42.720><c> want</c><00:04:42.960><c> to</c>
+
+00:04:43.189 --> 00:04:43.199 align:start position:0%
+our Target we're going to want to
+ 
+
+00:04:43.199 --> 00:04:46.730 align:start position:0%
+our Target we're going to want to
+compare<00:04:43.979><c> it</c><00:04:44.160><c> to</c><00:04:44.460><c> our</c><00:04:45.000><c> previous</c><00:04:45.660><c> closest</c><00:04:46.259><c> sum</c>
+
+00:04:46.730 --> 00:04:46.740 align:start position:0%
+compare it to our previous closest sum
+ 
+
+00:04:46.740 --> 00:04:49.490 align:start position:0%
+compare it to our previous closest sum
+value<00:04:46.979><c> to</c><00:04:47.580><c> see</c><00:04:47.759><c> if</c><00:04:48.240><c> it's</c><00:04:48.540><c> closer</c><00:04:49.020><c> to</c><00:04:49.320><c> the</c>
+
+00:04:49.490 --> 00:04:49.500 align:start position:0%
+value to see if it's closer to the
+ 
+
+00:04:49.500 --> 00:04:51.590 align:start position:0%
+value to see if it's closer to the
+Target<00:04:49.620><c> than</c><00:04:49.979><c> our</c><00:04:50.160><c> previous</c><00:04:50.340><c> closest</c><00:04:50.699><c> sum</c><00:04:51.120><c> and</c>
+
+00:04:51.590 --> 00:04:51.600 align:start position:0%
+Target than our previous closest sum and
+ 
+
+00:04:51.600 --> 00:04:53.810 align:start position:0%
+Target than our previous closest sum and
+that'll<00:04:51.840><c> be</c><00:04:51.960><c> using</c><00:04:52.199><c> the</c><00:04:52.500><c> formula</c><00:04:52.979><c> we</c><00:04:53.220><c> use</c><00:04:53.639><c> in</c>
+
+00:04:53.810 --> 00:04:53.820 align:start position:0%
+that'll be using the formula we use in
+ 
+
+00:04:53.820 --> 00:04:56.210 align:start position:0%
+that'll be using the formula we use in
+the<00:04:53.940><c> example</c><00:04:54.300><c> of</c><00:04:54.780><c> if</c><00:04:55.139><c> our</c><00:04:55.440><c> absolute</c><00:04:55.800><c> value</c><00:04:56.040><c> of</c>
+
+00:04:56.210 --> 00:04:56.220 align:start position:0%
+the example of if our absolute value of
+ 
+
+00:04:56.220 --> 00:04:58.969 align:start position:0%
+the example of if our absolute value of
+our<00:04:56.400><c> total</c><00:04:56.759><c> minus</c><00:04:57.720><c> our</c><00:04:57.840><c> Target</c><00:04:58.080><c> is</c><00:04:58.500><c> less</c><00:04:58.740><c> than</c>
+
+00:04:58.969 --> 00:04:58.979 align:start position:0%
+our total minus our Target is less than
+ 
+
+00:04:58.979 --> 00:05:01.249 align:start position:0%
+our total minus our Target is less than
+the<00:04:59.639><c> absolute</c><00:04:59.940><c> value</c><00:05:00.120><c> of</c><00:05:00.360><c> our</c><00:05:00.540><c> closest</c><00:05:00.720><c> sum</c>
+
+00:05:01.249 --> 00:05:01.259 align:start position:0%
+the absolute value of our closest sum
+ 
+
+00:05:01.259 --> 00:05:03.230 align:start position:0%
+the absolute value of our closest sum
+minus<00:05:01.740><c> our</c><00:05:01.860><c> Target</c><00:05:02.100><c> then</c><00:05:02.580><c> we'll</c><00:05:02.759><c> set</c><00:05:03.000><c> the</c>
+
+00:05:03.230 --> 00:05:03.240 align:start position:0%
+minus our Target then we'll set the
+ 
+
+00:05:03.240 --> 00:05:10.189 align:start position:0%
+minus our Target then we'll set the
+closest<00:05:03.419><c> sum</c><00:05:03.840><c> equal</c><00:05:04.139><c> to</c><00:05:04.320><c> our</c><00:05:04.440><c> new</c><00:05:04.680><c> Total</c>
+
+00:05:10.189 --> 00:05:10.199 align:start position:0%
+ 
+ 
+
+00:05:10.199 --> 00:05:12.050 align:start position:0%
+ 
+and<00:05:10.740><c> next</c><00:05:10.919><c> we'll</c><00:05:11.100><c> want</c><00:05:11.280><c> to</c><00:05:11.400><c> determine</c><00:05:11.880><c> if</c>
+
+00:05:12.050 --> 00:05:12.060 align:start position:0%
+and next we'll want to determine if
+ 
+
+00:05:12.060 --> 00:05:13.670 align:start position:0%
+and next we'll want to determine if
+we're<00:05:12.180><c> moving</c><00:05:12.479><c> our</c><00:05:12.720><c> left</c><00:05:12.900><c> or</c><00:05:13.080><c> right</c><00:05:13.320><c> pointer</c>
+
+00:05:13.670 --> 00:05:13.680 align:start position:0%
+we're moving our left or right pointer
+ 
+
+00:05:13.680 --> 00:05:15.830 align:start position:0%
+we're moving our left or right pointer
+and<00:05:13.979><c> we're</c><00:05:14.100><c> doing</c><00:05:14.280><c> this</c><00:05:14.580><c> by</c><00:05:15.240><c> checking</c><00:05:15.660><c> our</c>
+
+00:05:15.830 --> 00:05:15.840 align:start position:0%
+and we're doing this by checking our
+ 
+
+00:05:15.840 --> 00:05:18.350 align:start position:0%
+and we're doing this by checking our
+total<00:05:16.199><c> against</c><00:05:16.500><c> our</c><00:05:16.919><c> Target</c><00:05:17.160><c> if</c><00:05:17.759><c> our</c><00:05:17.940><c> total</c><00:05:18.240><c> is</c>
+
+00:05:18.350 --> 00:05:18.360 align:start position:0%
+total against our Target if our total is
+ 
+
+00:05:18.360 --> 00:05:19.430 align:start position:0%
+total against our Target if our total is
+less<00:05:18.540><c> than</c><00:05:18.660><c> our</c><00:05:18.780><c> Target</c><00:05:18.960><c> we're</c><00:05:19.199><c> going</c><00:05:19.320><c> to</c><00:05:19.380><c> be</c>
+
+00:05:19.430 --> 00:05:19.440 align:start position:0%
+less than our Target we're going to be
+ 
+
+00:05:19.440 --> 00:05:21.290 align:start position:0%
+less than our Target we're going to be
+moving<00:05:19.680><c> our</c><00:05:19.860><c> left</c><00:05:20.040><c> pointer</c><00:05:20.460><c> otherwise</c><00:05:21.060><c> we'll</c>
+
+00:05:21.290 --> 00:05:21.300 align:start position:0%
+moving our left pointer otherwise we'll
+ 
+
+00:05:21.300 --> 00:05:27.050 align:start position:0%
+moving our left pointer otherwise we'll
+be<00:05:21.419><c> moving</c><00:05:21.660><c> our</c><00:05:21.780><c> right</c><00:05:21.960><c> pointer</c>
+
+00:05:27.050 --> 00:05:27.060 align:start position:0%
+ 
+ 
+
+00:05:27.060 --> 00:05:28.550 align:start position:0%
+ 
+and<00:05:27.360><c> that's</c><00:05:27.419><c> all</c><00:05:27.600><c> we'll</c><00:05:27.780><c> need</c><00:05:27.960><c> to</c><00:05:28.080><c> do</c><00:05:28.199><c> for</c><00:05:28.380><c> our</c>
+
+00:05:28.550 --> 00:05:28.560 align:start position:0%
+and that's all we'll need to do for our
+ 
+
+00:05:28.560 --> 00:05:30.469 align:start position:0%
+and that's all we'll need to do for our
+looping<00:05:28.919><c> so</c><00:05:29.340><c> at</c><00:05:29.520><c> this</c><00:05:29.699><c> point</c><00:05:29.880><c> we</c><00:05:30.180><c> can</c><00:05:30.300><c> just</c>
+
+00:05:30.469 --> 00:05:30.479 align:start position:0%
+looping so at this point we can just
+ 
+
+00:05:30.479 --> 00:05:33.950 align:start position:0%
+looping so at this point we can just
+return<00:05:30.780><c> our</c><00:05:31.680><c> closest</c><00:05:32.039><c> sum</c><00:05:32.520><c> value</c>
+
+00:05:33.950 --> 00:05:33.960 align:start position:0%
+return our closest sum value
+ 
+
+00:05:33.960 --> 00:05:35.390 align:start position:0%
+return our closest sum value
+and<00:05:34.199><c> that's</c><00:05:34.320><c> it</c><00:05:34.500><c> for</c><00:05:34.620><c> the</c><00:05:34.740><c> code</c><00:05:34.860><c> so</c><00:05:35.039><c> let's</c><00:05:35.220><c> run</c>
+
+00:05:35.390 --> 00:05:35.400 align:start position:0%
+and that's it for the code so let's run
+ 
+
+00:05:35.400 --> 00:05:36.409 align:start position:0%
+and that's it for the code so let's run
+this
+
+00:05:36.409 --> 00:05:36.419 align:start position:0%
+this
+ 
+
+00:05:36.419 --> 00:05:39.170 align:start position:0%
+this
+all<00:05:36.840><c> test</c><00:05:37.020><c> cases</c><00:05:37.380><c> passed</c><00:05:37.740><c> so</c><00:05:37.860><c> let's</c><00:05:37.979><c> submit</c>
+
+00:05:39.170 --> 00:05:39.180 align:start position:0%
+all test cases passed so let's submit
+ 
+
+00:05:39.180 --> 00:05:41.090 align:start position:0%
+all test cases passed so let's submit
+our<00:05:39.600><c> solution</c><00:05:39.840><c> was</c><00:05:40.020><c> accepted</c><00:05:40.500><c> so</c><00:05:40.800><c> that's</c><00:05:40.919><c> it</c>
+
+00:05:41.090 --> 00:05:41.100 align:start position:0%
+our solution was accepted so that's it
+ 
+
+00:05:41.100 --> 00:05:42.890 align:start position:0%
+our solution was accepted so that's it
+for<00:05:41.280><c> this</c><00:05:41.460><c> video</c><00:05:41.639><c> If</c><00:05:42.300><c> you</c><00:05:42.479><c> like</c><00:05:42.600><c> this</c><00:05:42.720><c> video</c>
+
+00:05:42.890 --> 00:05:42.900 align:start position:0%
+for this video If you like this video
+ 
+
+00:05:42.900 --> 00:05:44.330 align:start position:0%
+for this video If you like this video
+and<00:05:43.080><c> want</c><00:05:43.259><c> to</c><00:05:43.320><c> see</c><00:05:43.380><c> more</c><00:05:43.560><c> content</c><00:05:43.919><c> like</c><00:05:44.160><c> this</c>
+
+00:05:44.330 --> 00:05:44.340 align:start position:0%
+and want to see more content like this
+ 
+
+00:05:44.340 --> 00:05:45.950 align:start position:0%
+and want to see more content like this
+make<00:05:44.639><c> sure</c><00:05:44.759><c> to</c><00:05:44.820><c> check</c><00:05:45.000><c> out</c><00:05:45.120><c> my</c><00:05:45.300><c> channel</c><00:05:45.479><c> thanks</c>
+
+00:05:45.950 --> 00:05:45.960 align:start position:0%
+make sure to check out my channel thanks
+ 
+
+00:05:45.960 --> 00:05:46.790 align:start position:0%
+make sure to check out my channel thanks
+for<00:05:46.139><c> watching</c>
+
+00:05:46.790 --> 00:05:46.800 align:start position:0%
+for watching
+ 
+
+00:05:46.800 --> 00:05:55.619 align:start position:0%
+for watching
+[Music]
+

@@ -3,3 +3,4 @@ pandas
 datasets
 load_dotenv
 flask
+yt-dlp
