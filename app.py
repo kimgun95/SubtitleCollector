@@ -48,7 +48,7 @@ def yt_dlp_search():
     datasets = pd.DataFrame(load_dataset("greengerong/leetcode")['train'])
     title = datasets.loc[int(leetcode_number) - 1, 'title']
 
-    query = f'leetcode {leetcode_number} {title}'
+    query = f'leetcode {leetcode_number}'
 
     videos = Youtube.search_bulk(keyword=query, max_results=100)
 
