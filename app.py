@@ -21,7 +21,7 @@ dynamodb_object = boto3.resource('dynamodb', region_name='ap-northeast-2')
 table_object = dynamodb_object.Table('Subtitle-Ondemand')
 
 # BUCKET_NAME = 'subtitle-collection'
-VTT_DIRECTORY = '/vtt'
+VTT_DIRECTORY = './vtt'
 DEBUG = bool(os.getenv('DEBUG'))
 if DEBUG is not True:
     os.makedirs(VTT_DIRECTORY, exist_ok=True)
