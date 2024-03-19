@@ -1,6 +1,5 @@
-flask
 boto3
-pytz
-python-dotenv
-datasets
 pandas
+datasets
+load_dotenv
+flask
