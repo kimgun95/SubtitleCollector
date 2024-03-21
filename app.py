@@ -93,44 +93,6 @@ def add_one():
                            success_message=success_message, error_message=error_message)
 
 
-@app.route('/search')
-def search():
-    search_query = request.args.get('q')
-    search_field = request.args.get('search_field')
-
-    if not search_query or not search_field:
-        # 검색어 또는 검색 필드가 제공되지 않은 경우
-        return "검색어와 검색 필드를 모두 제공해야 합니다."
-
-    if search_field == 'leetcode_number':
-        try:
-            print('검색한 숫자 값: ', int(search_query))
-            print('검색한 숫자 값 타입: ', type(int(search_query)))
-            response = table_object.query(
-                TableName='Subtitle-Ondemand',
-                IndexName='leetcode_number-index',  # 생성한 글로벌 보조 인덱스 이름
-                KeyConditionExpression='leetcode_number = :number',
-                ExpressionAttributeValues={
-                    ':number': int(search_query)
-                }
-            )
-            search_results = response['Items']
-            print("검색된 포스트의 총 갯수:", len(search_results))
-        except Exception as e:
-            print(f"Error searching by leetcode_number: {e}")
-            search_results = []
-    else:
-        # 올바르지 않은 검색 필드를 선택한 경우
-        return "올바른 검색 필드를 선택하세요 (title 또는 leetcode_number)."
-
-    page = int(request.args.get('page', 1))  # 페이지 번호, 기본값은 1
-    per_page = 10  # 페이지당 게시물 수
-
-    posts, prev_page, next_page, total_pages = pagination(search_results, page, per_page)
-
-    return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
-
-
 @app.route('/update_post/<video_id>', methods=['POST'])
 def update_post(video_id):
     try:
@@ -190,20 +152,45 @@ def post(video_id):
 
 @app.route('/board')
 def board():
-    try:
-        # DynamoDB 테이블에서 모든 게시물 가져오기
-        response = table_object.scan()
-        all_posts = response['Items']
-    except Exception as e:
-        print(f"Error retrieving posts from DynamoDB: {e}")
-        all_posts = []
+    search_query = request.args.get('q') # leet code number 값
+    search_field = request.args.get('search_field') # 검색 분류
+
+    if not search_query or not search_field: # 검색 값이 없을 때
+        try:
+            # DynamoDB 테이블에서 모든 게시물 가져오기
+            response = table_object.scan()
+            all_posts = response['Items']
+        except Exception as e:
+            print(f"Error retrieving posts from DynamoDB: {e}")
+            all_posts = []
+    elif search_field == 'leetcode_number': # leet code number를 검색했을 때
+        try:
+            print('검색한 숫자 값: ', int(search_query))
+            print('검색한 숫자 값 타입: ', type(int(search_query)))
+            response = table_object.query(
+                TableName='Subtitle-Ondemand',
+                IndexName='leetcode_number-index',  # 생성한 글로벌 보조 인덱스 이름
+                KeyConditionExpression='leetcode_number = :number',
+                ExpressionAttributeValues={
+                    ':number': int(search_query)
+                }
+            )
+            all_posts = response['Items']
+            print("검색된 포스트의 총 갯수:", len(all_posts))
+        except Exception as e:
+            print(f"Error searching by leetcode_number: {e}")
+            all_posts = []
+    else:
+        # 올바르지 않은 검색 필드를 선택한 경우
+        return "올바른 검색 필드를 선택하세요 (title 또는 leetcode_number)."
 
     page = int(request.args.get('page', 1))  # 페이지 번호, 기본값은 1
     per_page = 10  # 페이지당 게시물 수
 
     posts, prev_page, next_page, total_pages = pagination(all_posts, page, per_page)
 
-    return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages)
+    return render_template('board.html', posts=posts, prev_page=prev_page, next_page=next_page, total_pages=total_pages,
+                           search_query=search_query, search_field=search_field)
 
 
 @app.route('/', methods=['GET', 'POST'])
