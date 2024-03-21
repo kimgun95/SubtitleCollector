@@ -61,7 +61,7 @@
 {% endif %}
 
 {% for num in range(1, total_pages + 1) %}
-    <a href="{{ url_for('board', page=num) }}">{{ num }}</a>
+    <a href="{{ url_for('board', page=num, q=search_query, search_field=search_field) }}">{{ num }}</a>
 {% endfor %}
 
 {% if next_page %}
