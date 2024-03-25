@@ -151,7 +151,7 @@ def post(video_id):
 
 
 @app.route('/count')
-def board():
+def count():
     try:
         # DynamoDB에서 모든 게시글을 검색
         response = table_object.scan()
