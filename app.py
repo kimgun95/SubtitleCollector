@@ -39,6 +39,21 @@ def pagination(data, page, per_page):
     next_page = page + 1 if page < total_pages else None
     return paginated_data, prev_page, next_page, total_pages
 
+def scan_all_items(table):
+    all_items = []
+    scan_kwargs = {}
+    done = False
+    start_key = None
+
+    while not done:
+        if start_key:
+            scan_kwargs['ExclusiveStartKey'] = start_key
+        response = table.scan(**scan_kwargs)
+        all_items.extend(response.get('Items', []))
+        start_key = response.get('LastEvaluatedKey', None)
+        done = start_key is None
+
+    return all_items
 
 @app.route('/automation', methods=['GET'])
 def automation():
@@ -157,8 +172,7 @@ def post(video_id):
 def count():
     try:
         # DynamoDB에서 모든 게시글을 검색
-        response = table_object.scan()
-        all_posts = response['Items']
+        all_posts = scan_all_items(table_object)
         logging.info(f"검색된 포스트의 총 갯수: {len(all_posts)}")
 
         # LeetCode 번호별로 개수를 0으로 초기화
@@ -207,7 +221,7 @@ def board():
                 }
             )
             all_posts = response['Items']
-            print("검색된 포스트의 총 갯수:", len(all_posts))
+            logging.info(f"검색된 포스트의 총 갯수: {len(all_posts)}")
         except Exception as e:
             print(f"Error searching by leetcode_number: {e}")
             all_posts = []
