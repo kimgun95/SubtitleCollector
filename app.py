@@ -150,6 +150,34 @@ def post(video_id):
     return render_template('post.html', post=post)
 
 
+@app.route('/count')
+def board():
+    try:
+        # DynamoDB에서 모든 게시글을 검색
+        response = table_object.scan()
+        all_posts = response['Items']
+        print("검색된 포스트의 총 갯수:", len(all_posts))
+
+        # LeetCode 번호별로 개수를 0으로 초기화
+        leetcode_counts = {str(i): 0 for i in range(1, 2001)}
+
+        # LeetCode 번호별로 게시글 수를 계산
+        for post in all_posts:
+            leetcode_number = str(post.get('leetcode_number'))
+            if leetcode_number in leetcode_counts:
+                leetcode_counts[leetcode_number] += 1
+
+        # 결과를 25개씩 묶어서 리스트로 변환
+        leetcode_counts_list = [leetcode_counts[str(i)] for i in range(1, 2001)]
+        leetcode_counts_chunks = [leetcode_counts_list[i:i + 25] for i in range(0, len(leetcode_counts_list), 25)]
+
+        # 계산된 결과를 count.html에 전달
+        return render_template('count.html', leetcode_counts_chunks=leetcode_counts_chunks)
+    except Exception as e:
+        print(f"Error searching by leetcode_number: {e}")
+        return render_template('count.html', leetcode_counts_chunks=[])
+
+
 @app.route('/board')
 def board():
     search_query = request.args.get('q') # leet code number 값

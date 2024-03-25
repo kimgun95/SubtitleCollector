@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LeetCode Count Dashboard</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 1px solid black;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>LeetCode Submission Counts</h1>
+    <table>
+        <thead>
+            <tr>
+                {% for i in range(1, 26) %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for chunk in leetcode_counts_chunks %}
+            <tr>
+                {% for count in chunk %}
+                <td>{{ count }}개</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<a href="/">
+    <button>메인 페이지로 돌아가기</button>
+</a>
+
+</body>
+</html>
