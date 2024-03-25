@@ -21,7 +21,7 @@ s3_object = boto3.client('s3', region_name='ap-northeast-2')
 dynamodb_object = boto3.resource('dynamodb', region_name='ap-northeast-2')
 table_object = dynamodb_object.Table('Subtitle-Ondemand')
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # BUCKET_NAME = 'subtitle-collection'
 VTT_DIRECTORY = './vtt'
@@ -39,21 +39,6 @@ def pagination(data, page, per_page):
     next_page = page + 1 if page < total_pages else None
     return paginated_data, prev_page, next_page, total_pages
 
-def scan_all_items(table):
-    all_items = []
-    scan_kwargs = {}
-    done = False
-    start_key = None
-
-    while not done:
-        if start_key:
-            scan_kwargs['ExclusiveStartKey'] = start_key
-        response = table.scan(**scan_kwargs)
-        all_items.extend(response.get('Items', []))
-        start_key = response.get('LastEvaluatedKey', None)
-        done = start_key is None
-
-    return all_items
 
 @app.route('/automation', methods=['GET'])
 def automation():
@@ -171,28 +156,35 @@ def post(video_id):
 @app.route('/count')
 def count():
     try:
-        # DynamoDB에서 모든 게시글을 검색
-        all_posts = scan_all_items(table_object)
-        logging.info(f"검색된 포스트의 총 갯수: {len(all_posts)}")
+        # leetcode_number별 카운트를 저장할 딕셔너리 초기화
+        count_by_leetcode_number = {i: 0 for i in range(1, 2001)}
 
-        # LeetCode 번호별로 개수를 0으로 초기화
-        leetcode_counts = {str(i): 0 for i in range(1, 2001)}
+        # DynamoDB 테이블 스캔
+        response = table_object.scan()
+        items = response['Items']
 
-        # LeetCode 번호별로 게시글 수를 계산
-        for post in all_posts:
-            leetcode_number = str(post.get('leetcode_number'))
-            if leetcode_number in leetcode_counts:
-                leetcode_counts[leetcode_number] += 1
+        # 항목들을 순회하면서 leetcode_number 별로 카운트
+        for item in items:
+            leetcode_number = int(item['leetcode_number'])
+            count_by_leetcode_number[leetcode_number] += 1
 
-        # 결과를 25개씩 묶어서 리스트로 변환
-        leetcode_counts_list = [leetcode_counts[str(i)] for i in range(1, 2001)]
-        leetcode_counts_chunks = [leetcode_counts_list[i:i + 25] for i in range(0, len(leetcode_counts_list), 25)]
+        # LastEvaluatedKey를 확인하여 모든 데이터를 스캔했는지 확인
+        while 'LastEvaluatedKey' in response:
+            response = table_object.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
+            items = response['Items']
+            for item in items:
+                leetcode_number = int(item['leetcode_number'])
+                count_by_leetcode_number[leetcode_number] += 1
 
-        # 계산된 결과를 count.html에 전달
-        return render_template('count.html', leetcode_counts_chunks=leetcode_counts_chunks)
+        logging.info(f"검색된 포스트의 총 갯수: {sum(count_by_leetcode_number.values())}")
+
+        # 계산된 결과를 25개씩 묶어서 리스트로 변환하여 템플릿에 전달
+        counts = list(count_by_leetcode_number.values())
+        counts_chunks = [counts[i:i + 25] for i in range(0, len(counts), 25)]
+        return render_template('count.html', counts_chunks=counts_chunks)
     except Exception as e:
         logging.error(f"Error searching by leetcode_number: {e}")
-        return render_template('count.html', leetcode_counts_chunks=[])
+        return render_template('count.html', counts_chunks=[])
 
 
 @app.route('/board')

@@ -21,15 +21,13 @@
 <body>
     <h1>LeetCode Submission Counts</h1>
     <table>
-        {% for chunk in leetcode_counts_chunks %}
+        {% for chunk in counts_chunks %}
             <tr>
-                <!-- 문제 번호 -->
-                {% for i in range(loop.index0 * 25 + 1, loop.index0 * 25 + 26) %}
-                    <th>{{ i }}</th>
+                {% for number in range(loop.index0 * 25 + 1, loop.index0 * 25 + 26) %}
+                    <th>{{ number }}</th>
                 {% endfor %}
             </tr>
             <tr>
-                <!-- 해당 문제의 게시글 수 -->
                 {% for count in chunk %}
                     <td>{{ count }}개</td>
                 {% endfor %}
