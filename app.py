@@ -5,6 +5,7 @@ import pandas as pd
 from datasets import load_dataset
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for
+import logging
 
 from src.errors import DynamoOperationError, DynamoDuplicatedError
 from src.storage import DynamoDB
@@ -19,6 +20,8 @@ app = Flask(__name__)
 s3_object = boto3.client('s3', region_name='ap-northeast-2')
 dynamodb_object = boto3.resource('dynamodb', region_name='ap-northeast-2')
 table_object = dynamodb_object.Table('Subtitle-Ondemand')
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # BUCKET_NAME = 'subtitle-collection'
 VTT_DIRECTORY = './vtt'
@@ -156,7 +159,7 @@ def count():
         # DynamoDB에서 모든 게시글을 검색
         response = table_object.scan()
         all_posts = response['Items']
-        print("검색된 포스트의 총 갯수:", len(all_posts))
+        logging.info(f"검색된 포스트의 총 갯수: {len(all_posts)}")
 
         # LeetCode 번호별로 개수를 0으로 초기화
         leetcode_counts = {str(i): 0 for i in range(1, 2001)}
@@ -174,7 +177,7 @@ def count():
         # 계산된 결과를 count.html에 전달
         return render_template('count.html', leetcode_counts_chunks=leetcode_counts_chunks)
     except Exception as e:
-        print(f"Error searching by leetcode_number: {e}")
+        logging.error(f"Error searching by leetcode_number: {e}")
         return render_template('count.html', leetcode_counts_chunks=[])
 
 
